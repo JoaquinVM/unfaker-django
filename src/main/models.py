@@ -36,3 +36,7 @@ class Denuncia(models.Model):
              ('T', 'Terrorism'), ('V', 'Violence'), ('S', 'Others'))
     tipo = models.CharField(choices=tipos, default='FN')
 
+class Categoria(models.Model):
+    nombre = models.CharField(max_length= 30)
+
+

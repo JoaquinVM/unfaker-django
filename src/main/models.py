@@ -11,7 +11,8 @@ class Usuario(models.Model):
     fecha_nacimiento = models.DateField()
     nacionalidad
     puntaje = models.IntegerField()
-    genero
+    generos=( ('M', 'Masculino'), ('F', 'Femenino'))
+    genero = models.CharField(choices=tipos, default='FN')
 
 
 class Noticia(models.Model):

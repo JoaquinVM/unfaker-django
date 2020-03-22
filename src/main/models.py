@@ -11,7 +11,8 @@ class Usuario(models.Model):
     fecha_nacimiento = models.DateField()
     nacionalidad
     puntaje = models.IntegerField()
-    genero
+    generos=( ('M', 'Masculino'), ('F', 'Femenino'))
+    genero = models.CharField(choices=tipos, default='FN')
 
 
 class Noticia(models.Model):
@@ -35,4 +36,8 @@ class Denuncia(models.Model):
              ('PP', 'Personal Profit'), ('S', 'Spam'), ('SS', 'Suicide or Self-harm'),
              ('T', 'Terrorism'), ('V', 'Violence'), ('S', 'Others'))
     tipo = models.CharField(choices=tipos, default='FN')
+
+class Categoria(models.Model):
+    nombre = models.CharField(max_length= 30)
+
 

@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="835cb5a8-f5ab-44f2-847a-6395d52443b0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/views1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/views.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +26,13 @@
     </option>
     <expand />
     <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,6 +58,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\Desktop\unfaker\unfaker-django\src\main" />
+      <recent name="C:\Users\ASUS\Desktop\unfaker\unfaker-django\src\main\migrations" />
+    </key>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -70,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584811679898</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="jiji">
+      <created>1584814227954</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1584814227954</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -78,26 +101,39 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commir mio???" />
-    <option name="LAST_COMMIT_MESSAGE" value="commir mio???" />
+    <MESSAGE value="jiji" />
+    <option name="LAST_COMMIT_MESSAGE" value="jiji" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="424" y="7" key="CommitChangelistDialog2" timestamp="1584811676645">
+    <state x="424" y="7" key="CommitChangelistDialog2" timestamp="1584814225908">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="424" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584811676645" />
+    <state x="424" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584814225908" />
+    <state x="147" y="65" key="DiffContextDialog" timestamp="1584919675335">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="65" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1584919675335" />
     <state x="555" y="62" key="SettingsEditor" timestamp="1584814179493">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="555" y="62" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1584814179493" />
     <state x="868" y="97" key="SettingsEditor/67.27.1853.930@67.27.1853.930" timestamp="1584804857997" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1584814147135">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1584814241834">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1584814147135" />
-    <state x="482" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1584811517662">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1584814241834" />
+    <state x="482" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1584914217887">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="482" y="259" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584811517662" />
+    <state x="482" y="259" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584914217887" />
     <state x="649" y="319" key="com.intellij.ide.util.TipDialog/67.27.1853.930@67.27.1853.930" timestamp="1584805882650" />
+    <state x="478" y="204" key="git4idea.merge.GitPullDialog" timestamp="1584919722118">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="204" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1584919722118" />
+    <state x="820" y="145" key="search.everywhere.popup" timestamp="1584914721231">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="820" y="145" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1584914721231" />
   </component>
 </project>

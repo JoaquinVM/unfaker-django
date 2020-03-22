@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Readit - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/animate.css">
+    
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="../static/css/aos.css">
+
+    <link rel="stylesheet" href="../static/css/ionicons.min.css">
+    
+    <link rel="stylesheet" href="../static/css/flaticon.css">
+    <link rel="stylesheet" href="../static/css/icomoon.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+
+#form-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+form {
+  width: 90%;
+  max-width: 500px;
+}
+form #form-title {
+  font-weight: 400;
+  text-align: center;
+}
+form #debt-amount-slider {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  align-content: stretch;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+form #debt-amount-slider:before {
+  content: " ";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: #000;
+}
+form #debt-amount-slider input, form #debt-amount-slider label {
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+          flex: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+form #debt-amount-slider label {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+form #debt-amount-slider label:nth-child(2) {
+  left: 0%;
+}
+form #debt-amount-slider label:nth-child(4) {
+  left: 20%;
+}
+form #debt-amount-slider label:nth-child(6) {
+  left: 40%;
+}
+form #debt-amount-slider label:nth-child(8) {
+  left: 60%;
+}
+form #debt-amount-slider label:nth-child(10) {
+  left: 80%;
+}
+form #debt-amount-slider label:before {
+  content: attr(data-debt-amount);
+  position: absolute;
+  left: 50%;
+  padding-top: 10px;
+  -webkit-transform: translate(-50%, 45px);
+          transform: translate(-50%, 45px);
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0.85;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+form #debt-amount-slider label:after {
+  content: " ";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border: 2px solid #000;
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 1;
+  cursor: pointer;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+form #debt-amount-slider label:hover:after {
+  -webkit-transform: translate(-50%, -50%) scale(1.25);
+          transform: translate(-50%, -50%) scale(1.25);
+}
+form #debt-amount-slider input {
+  opacity: 0;
+  pointer-events: none;
+}
+form #debt-amount-slider input:checked + label:before {
+  font-weight: 800;
+  opacity: 1;
+}
+form #debt-amount-slider input:checked + label:after {
+  border-width: 4px;
+  -webkit-transform: translate(-50%, -50%) scale(0.75);
+          transform: translate(-50%, -50%) scale(0.75);
+}
+form #debt-amount-slider input:checked ~ #debt-amount-pos {
+  opacity: 1;
+}
+form #debt-amount-slider input:checked:nth-child(1) ~ #debt-amount-pos {
+  left: 10%;
+}
+form #debt-amount-slider input:checked:nth-child(3) ~ #debt-amount-pos {
+  left: 30%;
+}
+form #debt-amount-slider input:checked:nth-child(5) ~ #debt-amount-pos {
+  left: 50%;
+}
+form #debt-amount-slider input:checked:nth-child(7) ~ #debt-amount-pos {
+  left: 70%;
+}
+form #debt-amount-slider input:checked:nth-child(9) ~ #debt-amount-pos {
+  left: 90%;
+}
+form #debt-amount-slider #debt-amount-pos {
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: #000;
+  border-radius: 50%;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border: 2px solid #fff;
+  opacity: 0;
+  z-index: 2;
+}
+form:valid #debt-amount-slider input + label:before {
+  -webkit-transform: translate(-50%, 45px) scale(0.9);
+          transform: translate(-50%, 45px) scale(0.9);
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+form:valid #debt-amount-slider input:checked + label:before {
+  -webkit-transform: translate(-50%, 45px) scale(1.1);
+          transform: translate(-50%, 45px) scale(1.1);
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+form + button {
+  display: block;
+  position: relative;
+  margin: 56px auto 0;
+  padding: 10px 20px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 600;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 8px;
+  outline: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+form + button:hover {
+  background: #000;
+  color: #fff;
+}
+form + button:hover:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+form + button:focus {
+  background: #4caf50;
+  border-color: #4caf50;
+  color: #fff;
+  pointer-events: none;
+}
+form + button:focus:before {
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+form + button:before {
+  display: inline-block;
+  width: 0;
+  opacity: 0;
+  content: "\f3f4";
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 900;
+  margin-right: 0;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+form:invalid + button {
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    width: 24px;
+    opacity: 1;
+    margin-right: 12px;
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    width: 24px;
+    opacity: 1;
+    margin-right: 12px;
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    width: 24px;
+    opacity: 1;
+    margin-right: 12px;
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    width: 24px;
+    opacity: 1;
+    margin-right: 12px;
+  }
+}
+
+.checked {
+  color: orange;
+}
+
+    </style>
+    
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+  </head>
+  <body>
+    
+	  <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Un<i>faker</i>.</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="blog.html" class="nav-link">Popular</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Trending</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">Fresh</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Perfil</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+    <div class="hero-wrap " data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-md-12 ftco-animate">
+            <br>
+            <br>
+          	<div class="row">
+          		<div class="col-md-7">
+          			<div class="text">
+                  <br>
+                  <br>
+	          			<div class="mouse">
+										<a href="#" class="mouse-icon">
+											<div class="mouse-wheel"><span class="ion-ios-arrow-round-down"></span></div>
+										</a>
+									</div>
+								</div>
+          		</div>
+          	</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   <section class="bg-light contact-section ">
+     <br>
+     <br>
+    <div class="contact-form">
+      <div class="row no-gutters slider-text align-items-end justify-content-center">
+      </div>
+    </div>
+    <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 ftco-animate">
+          	<p class="mb-5">
+              <img src="../static/images/image_1.jpg" alt="" class="img-fluid">
+            </p>
+        
+            <div class=" d-flex justify-content-center">
+              <span class="">Fake</span> &nbsp&nbsp
+              <span class="fa fa-star checked"></span>&nbsp&nbsp
+              <span class="fa fa-star checked"></span>&nbsp&nbsp
+              <span class="fa fa-star checked"></span>&nbsp&nbsp
+              <span class="fa fa-star"></span>&nbsp&nbsp
+              <span class="fa fa-star"></span>&nbsp&nbsp
+              <span class="checked">Real</span>
+            </div>
+            <br>
+            <h2 class="mb-3">It is a long established fact a reader be distracted</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima nisi et. Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae voluptates soluta architecto tempora.</p>
+            <p>Molestiae cupiditate inventore animi, maxime sapiente optio, illo est nemo veritatis repellat sunt doloribus nesciunt! Minima laborum magni reiciendis qui voluptate quisquam voluptatem soluta illo eum ullam incidunt rem assumenda eveniet eaque sequi deleniti tenetur dolore amet fugit perspiciatis ipsa, odit. Nesciunt dolor minima esse vero ut ea, repudiandae suscipit!</p>
+            <h2 class="mb-3 mt-5">#2. Creative WordPress Themes</h2>  
+            <p>Temporibus ad error suscipit exercitationem hic molestiae totam obcaecati rerum, eius aut, in. Exercitationem atque quidem tempora maiores ex architecto voluptatum aut officia doloremque. Error dolore voluptas, omnis molestias odio dignissimos culpa ex earum nisi consequatur quos odit quasi repellat qui officiis reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
+            <p>Quisquam esse aliquam fuga distinctio, quidem delectus veritatis reiciendis. Nihil explicabo quod, est eos ipsum. Unde aut non tenetur tempore, nisi culpa voluptate maiores officiis quis vel ab consectetur suscipit veritatis nulla quos quia aspernatur perferendis, libero sint. Error, velit, porro. Deserunt minus, quibusdam iste enim veniam, modi rem maiores.</p>
+            <p>Odit voluptatibus, eveniet vel nihil cum ullam dolores laborum, quo velit commodi rerum eum quidem pariatur! Quia fuga iste tenetur, ipsa vel nisi in dolorum consequatur, veritatis porro explicabo soluta commodi libero voluptatem similique id quidem? Blanditiis voluptates aperiam non magni. Reprehenderit nobis odit inventore, quia laboriosam harum excepturi ea.</p>
+            <p>Adipisci vero culpa, eius nobis soluta. Dolore, maxime ullam ipsam quidem, dolor distinctio similique asperiores voluptas enim, exercitationem ratione aut adipisci modi quod quibusdam iusto, voluptates beatae iure nemo itaque laborum. Consequuntur et pariatur totam fuga eligendi vero dolorum provident. Voluptatibus, veritatis. Beatae numquam nam ab voluptatibus culpa, tenetur recusandae!</p>
+            <p>Voluptas dolores dignissimos dolorum temporibus, autem aliquam ducimus at officia adipisci quasi nemo a perspiciatis provident magni laboriosam repudiandae iure iusto commodi debitis est blanditiis alias laborum sint dolore. Dolores, iure, reprehenderit. Error provident, pariatur cupiditate soluta doloremque aut ratione. Harum voluptates mollitia illo minus praesentium, rerum ipsa debitis, inventore?</p>
+            
+            <div class="tag-widget post-tag-container mb-5 mt-5">
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">Life</a>
+                <a href="#" class="tag-cloud-link">Sport</a>
+                <a href="#" class="tag-cloud-link">Tech</a>
+                <a href="#" class="tag-cloud-link">Travel</a>
+              </div>
+            </div>
+            <h3>Rate</h3>
+            <form action="#" class="bg-light form-group ">
+              <div id="form-wrapper">
+                <div id="debt-amount-slider">
+                  
+                  <input type="radio" name="debt-amount" id="1" value="1" required>
+                  <label for="1" data-debt-amount="Fake"></label>
+                  <input type="radio" name="debt-amount" id="2" value="2" required>
+                  <label for="2" data-debt-amount=""></label>
+                  <input type="radio" name="debt-amount" id="3" value="3" required>
+                  <label for="3" data-debt-amount=""></label>
+                  <input type="radio" name="debt-amount" id="4" value="4" required>
+                  <label for="4" data-debt-amount=""></label>
+                  <input type="radio" name="debt-amount" id="5" value="5" required>
+                  <label for="5" data-debt-amount="Real"></label>
+                  <div id="debt-amount-pos"></div>
+                </div>
+              </div>
+              <br>
+              <br>
+              <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6Lfy5eAUAAAAAPOVJWqA0wF39Tyx0swsksY8KyOg"></div>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Vote" class="btn btn-primary py-3 px-5">
+              </div>
+            </form>
+            
+            <div class="about-author d-flex p-4 bg-light">
+              <div class="bio mr-5">
+                <img src="../static/images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
+              </div>
+              <div class="desc">
+                <h3>Autor</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus ita que, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+              </div>
+            </div>
+
+
+            <div class="">
+            
+              <div class="comment-form-wrap">
+                <h3 class="mb-5">Any problem with this article? </h3>
+                <form action="#" class=" bg-light">
+                  
+                  <div class="form-group">
+                    <label for="name">Type:</label>
+                    <select id="problem" name="carlist" class="form-control">
+                      <option value="Fake New">Fake New</option>
+                      <option value="Harassment">Harassment</option>
+                      <option value="Hate">Hate</option>
+                      <option value="Nudes">Nudes</option>
+                      <option value="Personal Profit"> Personal Profit</option>
+                      <option value="Spam">Spam</option>
+                      <option value="Suicide or Self-harm">Suicide or Self-harm</option>
+                      <option value="Terrorism">Terrorism</option>
+                      <option value="Violence">Violence</option>
+                      <option value="Others">Others</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Name:</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Description:</label>
+                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Send complaint" class="btn py-3 px-4 btn-primary">
+                  </div>
+
+                </form>
+              </div>
+            </div>
+
+          </div> <!-- .col-md-8 -->
+          <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
+            <div class="sidebar-box">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon icon-search"></span>
+                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                </div>
+              </form>
+            </div>
+            <div class="sidebar-box ftco-animate">
+              <div class="categories">
+                <h3>Categories</h3>
+                <li><a href="#">Illustration <span class="ion-ios-arrow-forward"></span></a></li>
+                <li><a href="#">Branding <span class="ion-ios-arrow-forward"></span></a></li>
+                <li><a href="#">Application <span class="ion-ios-arrow-forward"></span></a></li>
+                <li><a href="#">Design <span class="ion-ios-arrow-forward"></span></a></li>
+                <li><a href="#">Marketing <span class="ion-ios-arrow-forward"></span></a></li>
+              </div>
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3>Recent Blog</h3>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(../static/images/image_1.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> Nov. 14, 2019</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(../static/images/image_2.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> Nov. 14, 2019</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(../static/images/image_3.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> Nov. 14, 2019</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3>Tag Cloud</h3>
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">cat</a>
+                <a href="#" class="tag-cloud-link">abstract</a>
+                <a href="#" class="tag-cloud-link">people</a>
+                <a href="#" class="tag-cloud-link">person</a>
+                <a href="#" class="tag-cloud-link">model</a>
+                <a href="#" class="tag-cloud-link">delicious</a>
+                <a href="#" class="tag-cloud-link">desserts</a>
+                <a href="#" class="tag-cloud-link">drinks</a>
+              </div>
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3>Paragraph</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="logo"><a href="#">Un<span>faker</span>.</a></h2>
+              <p>A real news provider, Unfaker pretends to reduce the spread and creation of fake news on media with system management and community support. Thanks for joining.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">latest News</h2>
+              <div class="block-21 mb-4 d-flex">
+	              <a class="img mr-4 rounded" style="background-image: url(../static/images/image_1.jpg);"></a>
+	              <div class="text">
+	                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+	                <div class="meta">
+	                  <div><a href="#"></span> Oct. 16, 2019</a></div>
+	                  <div><a href="#"></span> Admin</a></div>
+	                  <div><a href="#"></span> 19</a></div>
+	                </div>
+	              </div>
+	            </div>
+	            <div class="block-21 mb-4 d-flex">
+	              <a class="img mr-4 rounded" style="background-image: url(../static/images/image_2.jpg);"></a>
+	              <div class="text">
+	                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+	                <div class="meta">
+	                  <div><a href="#"></span> Oct. 16, 2019</a></div>
+	                  <div><a href="#"></span> Admin</a></div>
+	                  <div><a href="#"></span> 19</a></div>
+	                </div>
+	              </div>
+	            </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Information</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Home</a></li>
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Popular</a></li>
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Trending</a></li>
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Fresh</a></li>
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Profile</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Universidad Privada Boliviana, Camino Achocalla #254</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 2224 0006</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">unfaker@upb.edu.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Los Pitones</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="../static/js/jquery.min.js"></script>
+  <script src="../static/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../static/js/popper.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script src="../static/js/jquery.easing.1.3.js"></script>
+  <script src="../static/js/jquery.waypoints.min.js"></script>
+  <script src="../static/js/jquery.stellar.min.js"></script>
+  <script src="../static/js/owl.carousel.min.js"></script>
+  <script src="../static/js/jquery.magnific-popup.min.js"></script>
+  <script src="../static/js/aos.js"></script>
+  <script src="../static/js/jquery.animateNumber.min.js"></script>
+  <script src="../static/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="../static/js/google-map.js"></script>
+  <script src="../static/js/main.js"></script>
+    
+  </body>
+</html>

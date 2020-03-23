@@ -1,10 +1,16 @@
 from django import forms
 
-from django.db.models import Noticia
+from .models import Noticia
 
-class NoticiaForm (forms.ModelForm):
-    class Meta:
-        fields:['titulo', 'descripcion', 'fuente', 'creador', 'fecha', 'pais', 'imagen']
-        labels= {'titulo': 'Titulo', 'descripcion': 'Descripcion', 'fuente': 'Fuente', 'creador': 'Creador',
-                 'fecha': 'Fecha', 'pais': 'Pais', 'imagen': 'Imagen'}
-        widgets= {}
+class NoticiaForm (forms.Form):
+    titulo = forms.CharField(max_length=100)
+    descripcion = forms.CharField(max_length=500)
+    fuente = forms.CharField(max_length=100)
+    pais = forms.CharField(max_length=20)
+    imagen= forms.ImageField()
+    def save(self):
+        data = self.cleaned_data
+        noticia = Noticia(titulo=data['titulo'], descripcion=data['descripcion'],
+                          fuente=data['fuente'], pais=data['pais'], puntaje=0, imagen=[''])
+        noticia.save()
+

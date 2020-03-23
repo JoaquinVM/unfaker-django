@@ -99,16 +99,17 @@
       <div class="container">
         <div class="row block-9 no-gutters">
           <div class="col-lg-6 order-md-last d-flex">
-            <form action="#" class="bg-light p-4 p-md-5 contact-form">
+            <form method= 'POST' action="#" class="bg-light p-4 p-md-5 contact-form"> {% csrf_token %}
               <div class="col-12 form-group">
-                <input type="text" class="form-control" placeholder="Title">
+                <input type="text" class="form-control" placeholder="Title" name="titulo" id ="titulo">
+
               </div>
               <div class="col-12 form-group">
-                <input type="text" class="form-control" placeholder="Source">
+                <input type="text" class="form-control" placeholder="Source"name="fuente"id ="fuente">
               </div>
 
               <div class="col-12 form-group">
-                <select id="nacionalidad" name="carlist" class="form-control">
+                <select id="nacionalidad" name="pais" class="form-control"id ="pais">
                   <option value="Argentina">Argentina</option>
                   <option value="Bolivia">Bolivia</option>
                   <option value="Brasil">Brasil</option>
@@ -125,11 +126,11 @@
                 <input type="text" class="form-control" placeholder="Tags">
               </div>
               <div class="col-12 form-group">
-                <textarea name="" id="" cols="30" rows="20" class="form-control" placeholder="Description"></textarea>
+                <textarea name="descripcion" id="descripcion" cols="30" rows="20" class="form-control" placeholder="Description"></textarea>
               </div>
         
               <div class="col-12 form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                <input type="submit" value="Publish New" class="btn btn-primary py-3 px-5">
               </div>
               
 

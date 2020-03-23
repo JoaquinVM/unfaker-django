@@ -9,25 +9,32 @@ class Usuario(models.Model):
     contrasena = models.CharField(max_length=20)
     email = models.CharField(max_length=10)
     fecha_nacimiento = models.DateField()
-    nacionalidad
+    nacionalidades=  (('Argentina', 'Argentina'), ('Bolivia', 'Bolivia'), ('Brasil', 'Brasil'),
+              ('Chile', 'Chile'), ('Colombia', 'Colombia'), ('Ecuador', 'Ecuador'),
+              ('Paraguay', 'Paraguay'), ('Perú', 'Perú'), ('Uruguay', 'Uruguay'),
+              ('Venezuela', 'Venezuela'))
+  #  nacionalidad=models.CharField(choices=nacionalidades, default='Bolivia', max_length=20)
     puntaje = models.IntegerField()
     generos=( ('M', 'Masculino'), ('F', 'Femenino'))
-    genero = models.CharField(choices=tipos, default='FN')
+    genero = models.CharField(choices=generos, default='FN', max_length=10)
 
+class Categoria(models.Model):
+    nombre = models.CharField(max_length= 30)
 
 class Noticia(models.Model):
-    titulo = models.CharField(max_lenght=100)
+    titulo = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=500)
-    fuente = models.CharField(max_lenght= 00)
+    fuente = models.CharField(max_length= 100)
     puntaje = models.IntegerField()
-    creador = models.ForeignKey(Usuario,null=False, blank=False, on_delete=models.CASCADE)
+    creador = models.ForeignKey(Usuario,null=True, blank=False, on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now_add=True)
     paises = (('Argentina', 'Argentina'), ('Bolivia', 'Bolivia'), ('Brasil', 'Brasil'),
               ('Chile', 'Chile'), ('Colombia', 'Colombia'), ('Ecuador', 'Ecuador'),
               ('Paraguay', 'Paraguay'), ('Perú', 'Perú'), ('Uruguay', 'Uruguay'),
               ('Venezuela', 'Venezuela'), ('Internacional', 'Internacional'))
-    pais = models.CharField(choices=paises, default='Internacional')
-    imagen = models.CharField(max_length=100)
+    pais = models.CharField(choices=paises, default='Internacional',max_length=20)
+    imagen = models.ImageField(upload_to="imagenes/")
+    #categoria = models.ForeignKey(Categoria, default=None, blank=False, on_delete=models.CASCADE)
 
 class Denuncia(models.Model):
     descripcion = models.CharField(max_length=500)
@@ -35,9 +42,7 @@ class Denuncia(models.Model):
     tipos = (('FN', 'Fake New'), ('HS', 'Harassment'), ('H', 'Hate'), ('N', 'Nudes'),
              ('PP', 'Personal Profit'), ('S', 'Spam'), ('SS', 'Suicide or Self-harm'),
              ('T', 'Terrorism'), ('V', 'Violence'), ('S', 'Others'))
-    tipo = models.CharField(choices=tipos, default='FN')
+    tipo = models.CharField(choices=tipos, default='FN', max_length=30)
 
-class Categoria(models.Model):
-    nombre = models.CharField(max_length= 30)
 
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import NoticiaForm
 
 # Create your views here.
 def feed_view(request):
@@ -14,4 +15,10 @@ def profile_view(request):
 
 
 def publish_view(request):
-    return render(request, "publish.html", {})
+    form = NoticiaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context = {
+        'form': form
+    }
+    return render(request, "publish.html", context)

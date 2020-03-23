@@ -33,13 +33,13 @@ class Noticia(models.Model):
               ('Paraguay', 'Paraguay'), ('Perú', 'Perú'), ('Uruguay', 'Uruguay'),
               ('Venezuela', 'Venezuela'), ('Internacional', 'Internacional'))
     pais = models.CharField(choices=paises, default='Internacional',max_length=20)
-    #imagen = models.ImageField(upload_to="imagenes/")
+    imagen = models.FileField(upload_to="media/")
     #categoria = models.ForeignKey(Categoria, default=None, blank=False, on_delete=models.CASCADE)
 
 class Denuncia(models.Model):
     descripcion = models.CharField(max_length=500)
-    email=models.CharField(default= None ,max_length=30)
-    fecha = models.DateTimeField(auto_now_add=True)
+    email = models.CharField(default= None ,max_length=30)
+    #fecha = models.DateTimeField(auto_now_add=True)
     tipos = (('FN', 'Fake New'), ('HS', 'Harassment'), ('H', 'Hate'), ('N', 'Nudes'),
              ('PP', 'Personal Profit'), ('S', 'Spam'), ('SS', 'Suicide or Self-harm'),
              ('T', 'Terrorism'), ('V', 'Violence'), ('S', 'Others'))

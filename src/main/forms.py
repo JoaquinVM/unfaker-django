@@ -9,11 +9,11 @@ class NoticiaForm (forms.Form):
     descripcion = forms.CharField(max_length=500)
     fuente = forms.CharField(max_length=100)
     pais = forms.CharField(max_length=20)
-   # imagen= forms.ImageField()
+    imagen= forms.FileField()
     def save(self):
         data = self.cleaned_data
         noticia = Noticia(titulo=data['titulo'], descripcion=data['descripcion'],
-                          fuente=data['fuente'], pais=data['pais'], puntaje=0, imagen=[''])
+                          fuente=data['fuente'], pais=data['pais'], puntaje=0)
         noticia.save()
 
 
@@ -38,10 +38,9 @@ class UsuarioForm (forms.Form):
 class DenunciaForm (forms.Form):
     descripcion = forms.CharField(max_length=500)
     email = forms.CharField(max_length=30)
-    fecha = forms.DateTimeField()
     tipo = forms.CharField(max_length=30)
     def save(self):
         data = self.cleaned_data
-        denuncia = Denuncia(descripcion=data['descripcion'], fecha=data['fecha'],email=data['email'],
+        denuncia = Denuncia(descripcion=data['descripcion'], email=data['email'],
                           tipo=data['tipo'])
         denuncia.save()

@@ -30,24 +30,24 @@
         <div class="row justify-content-center ">
           <div class="col-4 px-md-0 navbar-expand-lg navbar-dark ftco_navbar">
             <div class="col-12 navbar-brand" style="font-size: 50px; text-align: center;">Un<i>faker</i>.</div>
-            <form action="#" class="bg-light p-8 p-md-5 form-group">
+            <form method= 'POST' action="#" class="bg-light p-8 p-md-5 form-group"> {% csrf_token %}
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nombre">
+                <input type="text" class="form-control" placeholder="Nombre" name="nombre" id ="nombre">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Apellido">
+                <input type="text" class="form-control" placeholder="Apellido" name="apellido" id ="apellido">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Username">
+                <input type="text" class="form-control" placeholder="Username" name="username" id ="username">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Correo">
+                <input type="text" class="form-control" placeholder="Correo" name="email" id ="email">
               </div>
               <div class="form-group">
-                <input type="date" class="form-control" placeholder="Fecha Nacimiento">
+                <input type="date" class="form-control" placeholder="Fecha Nacimiento" name="fecha_nacimiento" id ="fecha_nacimiento">
               </div>
               <div class="form-group">
-                <select id="nacionalidad" name="carlist" class="form-control">
+                <select id="nacionalidad" name="carlist" class="form-control" name="nacionalidad" id ="nacionalidad">
                   <option value="Argentina">Argentina</option>
                   <option value="Bolivia">Bolivia</option>
                   <option value="Brasil">Brasil</option>
@@ -62,10 +62,10 @@
               </div>
             
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Password" name="contrasena" id ="contrasena">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Repeat Password">
+                <input type="password" class="form-control" placeholder="Repeat Password" name="contrasena" id ="contrasena">
               </div>
 
               <div class="form-group d-flex justify-content-center">

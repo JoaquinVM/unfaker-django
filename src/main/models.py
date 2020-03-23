@@ -7,7 +7,7 @@ class Usuario(models.Model):
     apellido = models.CharField(max_length=50)
     username = models.CharField(max_length=7)
     contrasena = models.CharField(max_length=20)
-    email = models.CharField(max_length=10)
+    email = models.CharField(max_length=30)
     fecha_nacimiento = models.DateField()
     nacionalidades=  (('Argentina', 'Argentina'), ('Bolivia', 'Bolivia'), ('Brasil', 'Brasil'),
               ('Chile', 'Chile'), ('Colombia', 'Colombia'), ('Ecuador', 'Ecuador'),
@@ -33,11 +33,12 @@ class Noticia(models.Model):
               ('Paraguay', 'Paraguay'), ('Perú', 'Perú'), ('Uruguay', 'Uruguay'),
               ('Venezuela', 'Venezuela'), ('Internacional', 'Internacional'))
     pais = models.CharField(choices=paises, default='Internacional',max_length=20)
-    imagen = models.ImageField(upload_to="imagenes/")
+    #imagen = models.ImageField(upload_to="imagenes/")
     #categoria = models.ForeignKey(Categoria, default=None, blank=False, on_delete=models.CASCADE)
 
 class Denuncia(models.Model):
     descripcion = models.CharField(max_length=500)
+    email=models.CharField(default= None ,max_length=30)
     fecha = models.DateTimeField(auto_now_add=True)
     tipos = (('FN', 'Fake New'), ('HS', 'Harassment'), ('H', 'Hate'), ('N', 'Nudes'),
              ('PP', 'Personal Profit'), ('S', 'Spam'), ('SS', 'Suicide or Self-harm'),

@@ -47,9 +47,10 @@
                 <input type="date" class="form-control" placeholder="Fecha Nacimiento" name="fecha_nacimiento" id ="fecha_nacimiento">
               </div>
               <div class="form-group">
-                <select id="nacionalidad" name="carlist" class="form-control" name="nacionalidad" id ="nacionalidad">
+                <label for="nacionalidad">Type:</label>
+                <select id="nacionalidad"class="form-control" name="nacionalidad">
                   <option value="Argentina">Argentina</option>
-                  <option value="Bolivia">Bolivia</option>
+                  <option value="Bolivia">Bolivia </option>
                   <option value="Brasil">Brasil</option>
                   <option value="Chile">Chile</option>
                   <option value="Colombia">Colombia</option>
@@ -57,15 +58,15 @@
                   <option value="Paraguay">Paraguay</option>
                   <option value="Peru">Peru</option>
                   <option value="Uruguay">Uruguay</option>
-                  <option value="Venezuela">Venezuela </option>
+                  <option value="Venezuela">Venezuela</option>
                 </select>
               </div>
             
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" name="contrasena" id ="contrasena">
+                <input type="password" class="form-control" placeholder="Password" name="contrasena1" id ="contrasena1">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Repeat Password" name="contrasena" id ="contrasena">
+                <input type="password" class="form-control" placeholder="Repeat Password" name="contrasena2" id ="contrasena2">
               </div>
 
               <div class="form-group d-flex justify-content-center">
@@ -74,8 +75,12 @@
               <div class="form-group d-flex justify-content-center h-10">
                 <input type="submit" value="Sign In" class="btn btn-primary py-3 px-5">
               </div>
+              <div class="row justify-content-center " style="color:black" >
+              {% for message in messages %}
+              {{message}}
+              {% endfor %}
+              </div>
             </form>
-          
           </div>
         </div>
       </div>

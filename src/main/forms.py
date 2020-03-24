@@ -1,7 +1,7 @@
 from django import forms
 
 from .models import Noticia
-from .models import Usuario
+#from .models import Usuario
 from .models import Denuncia
 
 class NoticiaForm (forms.Form):
@@ -17,22 +17,23 @@ class NoticiaForm (forms.Form):
         noticia.save()
 
 
-class UsuarioForm (forms.Form):
-    nombre = forms.CharField(max_length=50)
-    apellido = forms.CharField(max_length=50)
-    username = forms.CharField(max_length=7)
-    contrasena = forms.CharField(max_length=20)
-    email = forms.CharField(max_length=30)
-    fecha_nacimiento = forms.DateField()
+#class UsuarioForm (forms.Form):
+ #   nombre = forms.CharField(max_length=50)
+  #  apellido = forms.CharField(max_length=50)
+   # username = forms.CharField(max_length=7)
+    #contrasena1 = forms.CharField(max_length=20)
+    #contrasena2 = forms.CharField(max_length=20)
+    #email = forms.CharField(max_length=30)
+    #fecha_nacimiento = forms.DateField()
     #  nacionalidad=models.CharField(choices=nacionalidades, default='Bolivia', max_length=20)
-    puntaje = forms.IntegerField()
-    genero = forms.CharField(max_length=10)
-    def save(self):
-        data = self.cleaned_data
-        usuario = Usuario(nombre=data['nombre'], apellido=data['apellido'],
-                          username=data['username'], contrasena=data['contrasena'], puntaje=0,email=data['email'],
-                          fecha_nacimiento=data[' fecha_nacimiento'], genero=data['genero'])
-        usuario.save()
+   # puntaje = forms.IntegerField()
+   # genero = forms.CharField(max_length=10)
+   # def save(self):
+    #    data = self.cleaned_data
+    #    usuario = Usuario(nombre=data['nombre'], apellido=data['apellido'],
+    #                      username=data['username'], contrasena1=data['contrasena1'], puntaje=0,email=data['email'],
+    #                      fecha_nacimiento=data[' fecha_nacimiento'], genero=data['genero'])
+    #    usuario.save()
 
 
 class DenunciaForm (forms.Form):

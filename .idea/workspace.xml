@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="835cb5a8-f5ab-44f2-847a-6395d52443b0" name="Default Changelist" comment="denuncia">
-      <change afterPath="$PROJECT_DIR$/src/static/logobonito.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/publish.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/publish.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/unfaker.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/unfaker.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/unfaker/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/unfaker/settings.py" afterDir="false" />
     </list>

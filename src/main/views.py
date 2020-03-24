@@ -1,9 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import NoticiaForm
 from .forms import DenunciaForm
-from .forms import UsuarioForm
+#from .forms import UsuarioForm
+from django.contrib.auth.models import auth
+from django.contrib.auth import get_user_model
+from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
-
+User = get_user_model()
 # Create your views here.
 def signin_view(request):
     if request.method== 'POST':
@@ -23,8 +26,8 @@ def signin_view(request):
                 messages.info(request,'Email ya usado')
                 return redirect('signin')
             else:
-                user=User.objects.create_user(username=username,contrasena1=contrasena1, email=email, nacionalidad=nacionalidad,
-                                      fecha_nacimiento=fecha_nacimiento,nombre=nombre,apellido=apellido)
+                user=User.objects.create_user(username=username,password=contrasena1, email=email, nacionalidad=nacionalidad,
+                                      fecha_nacimiento=fecha_nacimiento,first_name=nombre,last_name=apellido)
                 user.save();
                 messages.info(request,'Usuario creado')
                 return redirect('login')

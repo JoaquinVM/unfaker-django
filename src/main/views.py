@@ -27,7 +27,7 @@ def signin_view(request):
                 return redirect('signin')
             else:
                 user=User.objects.create_user(username=username,password=contrasena1, email=email, nacionalidad=nacionalidad,
-                                      fecha_nacimiento=fecha_nacimiento,first_name=nombre,last_name=apellido)
+                                      fecha_nacimiento=fecha_nacimiento,first_name=nombre,last_name=apellido, puntaje=0)
                 user.save();
                 messages.info(request,'Usuario creado')
                 return redirect('login')

@@ -3,23 +3,24 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class Usuario(AbstractUser):
+    id = models.AutoField(primary_key = True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     username = models.CharField(max_length=7, unique=True)
     password = models.CharField(default='', max_length=20)
     email = models.CharField(max_length=30, default='')
-    fecha_nacimiento = models.DateField()
+    fecha_nacimiento = models.DateField(null=True)
     nacionalidades=  (('Argentina', 'Argentina'), ('Bolivia', 'Bolivia'), ('Brasil', 'Brasil'),
               ('Chile', 'Chile'), ('Colombia', 'Colombia'), ('Ecuador', 'Ecuador'),
               ('Paraguay', 'Paraguay'), ('Perú', 'Perú'), ('Uruguay', 'Uruguay'),
               ('Venezuela', 'Venezuela'))
     nacionalidad=models.CharField( max_length=20, default='Bolivia')
-    puntaje = models.IntegerField()
+    puntaje = models.IntegerField(null=True)
     generos=( ('M', 'Masculino'), ('F', 'Femenino'))
     genero = models.CharField(choices=generos, default='FN', max_length=10)
     last_login = models.DateTimeField(null=True)
     is_staff = models.BooleanField(null=True)
-    is_active = models.BooleanField(null=True)
+    is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(null=True)
     last_login = models.DateTimeField(null=True)
     date_joined = models.DateTimeField(null=True)

@@ -33,7 +33,7 @@ class Noticia(models.Model):
               ('Paraguay', 'Paraguay'), ('Perú', 'Perú'), ('Uruguay', 'Uruguay'),
               ('Venezuela', 'Venezuela'), ('Internacional', 'Internacional'))
     pais = models.CharField(choices=paises, default='Internacional',max_length=20)
-    imagen = models.FileField(upload_to="media/")
+    imagen = models.CharField(max_length=100, default='default')
     #categoria = models.ForeignKey(Categoria, default=None, blank=False, on_delete=models.CASCADE)
 
 class Denuncia(models.Model):

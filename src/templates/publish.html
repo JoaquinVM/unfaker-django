@@ -14,25 +14,19 @@
       <div class="container">
         <div class="row block-9 no-gutters">
           <div class="col-lg-6 order-md-last d-flex">
-            <form method= 'POST' action="#" class="bg-light p-4 p-md-5 contact-form"> {% csrf_token %}
-              {{form.as_p}}
+            <form method= 'POST' action="#" class="bg-light p-4 p-md-5 contact-form" enctype="multipart/form-data"> {% csrf_token %}
               <div class="col-12 form-group">
-                <input type="submit" value="Publish New" class="btn btn-primary py-3 px-5">
-              </div>
-            </form>
-            <form method= 'POST' action="#" class="bg-light p-4 p-md-5 contact-form"> {% csrf_token %}
-              <div class="col-12 form-group">
-                <input type='file' onchange="readURL(this);" />
+                <input type='file' onchange="readURL(this);" name="imagen" id="imagen">
               </div>
               <div class="col-12 form-group">
-                <input type="text" class="form-control" placeholder="Title" name="titulo" id ="titulo">
+                <input type="text" class="form-control" placeholder="Title" name="titulo" id="titulo">
               </div>
               <div class="col-12 form-group">
-                <input type="text" class="form-control" placeholder="Source"name="fuente"id ="fuente">
+                <input type="text" class="form-control" placeholder="Source" name="fuente" id="fuente">
               </div>
 
               <div class="col-12 form-group">
-                <select id="nacionalidad" name="pais" class="form-control"id ="pais">
+                <select id="nacionalidad" name="pais" class="form-control" id="pais">
                   <option value="Argentina">Argentina</option>
                   <option value="Bolivia">Bolivia</option>
                   <option value="Brasil">Brasil</option>
@@ -68,7 +62,7 @@
           	<div id="" style="width:500px ; height: 400px;">
 
               <br>
-              <img id="blah" src="#" alt="your image" />
+              <img id="blah" src="../static/logobonito.png" height="375" width="626">
             </div>
           </div>
         </div>

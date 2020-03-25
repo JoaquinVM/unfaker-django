@@ -1,3 +1,5 @@
+import json
+import urllib
 from django.shortcuts import render, redirect
 from .forms import NoticiaForm
 from .forms import DenunciaForm
@@ -6,6 +8,8 @@ from django.contrib.auth.models import auth
 from django.contrib.auth import get_user_model
 from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
+from django.conf import settings
+
 User = get_user_model()
 # Create your views here.
 def signin_view(request):
@@ -26,11 +30,37 @@ def signin_view(request):
                 messages.info(request,'Email ya usado')
                 return redirect('signin')
             else:
-                user=User.objects.create_user(username=username, password=contrasena1, email=email, nacionalidad= nacionalidad,
-                                      fecha_nacimiento=fecha_nacimiento, first_name=nombre, last_name=apellido, puntaje=0)
-                user.save();
-                messages.info(request,'Usuario creado')
-                return redirect('login')
+                ###
+                recaptcha_response = request.POST.get('g-recaptcha-response')
+                url = 'https://www.google.com/recaptcha/api/siteverify'
+                values = {
+                    'secret': settings.RECAPTCHA_SECRET_KEY,
+                    'response': recaptcha_response
+                }
+                data = urllib.parse.urlencode(values).encode()
+                req = urllib.request.Request(url, data=data)
+                response = urllib.request.urlopen(req)
+                result = json.loads(response.read().decode())
+                if result['success']:
+                    user = User.objects.create_user(username=username, password=contrasena1, email=email,
+                                                    nacionalidad=nacionalidad, fecha_nacimiento=fecha_nacimiento,
+                                                    first_name=nombre, last_name=apellido, puntaje=0)
+                    user.save()
+                    messages.success(request, 'Usuario creado')
+                    return redirect('login')
+                else:
+                    messages.error(request, '¿Eres un robot? ¡Captcha inválido!')
+                    return redirect('signin')
+
+
+
+                ###
+                #user=User.objects.create_user(username=username, password=contrasena1, email=email, nacionalidad= nacionalidad,
+                 #                     fecha_nacimiento=fecha_nacimiento, first_name=nombre, last_name=apellido, puntaje=0)
+                #user.save();
+                #messages.info(request,'Usuario creado')
+                #return redirect('login')
+
         else:
             messages.info(request,'Contraseñas diferentes')
             return redirect('signin')
@@ -86,8 +116,11 @@ def publish_view(request):
         uploaded_file_url = fs.url(filename) # gets the url
         form.save(filename)
         return render(request, 'publish.html', {
-            'uploaded_file_url': uploaded_file_url
-        })
+            'uploaded_file_url': uploaded_file_url})
+
+def logout_view(request):
+    auth.logout(request)
+    return redirect('/')
 
     return render(request, 'publish.html')
     # form = NoticiaForm(request.POST or None)

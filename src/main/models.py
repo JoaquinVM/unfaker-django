@@ -18,6 +18,7 @@ class Usuario(AbstractUser):
     puntaje = models.IntegerField(null=True)
     generos=( ('M', 'Masculino'), ('F', 'Femenino'))
     genero = models.CharField(choices=generos, default='FN', max_length=10)
+    #descripcion = models.CharField(max_length=140, default='¡Hola mundo!')
     last_login = models.DateTimeField(null=True)
     is_staff = models.BooleanField(null=True)
     is_active = models.BooleanField(default=True)

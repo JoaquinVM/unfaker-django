@@ -41,7 +41,10 @@ class Noticia(models.Model):
               ('Venezuela', 'Venezuela'), ('Internacional', 'Internacional'))
     pais = models.CharField(choices=paises, default='Internacional',max_length=20)
     imagen = models.CharField(max_length=100, default='default')
-    #categoria = models.ForeignKey(Categoria, default=None, blank=False, on_delete=models.CASCADE)
+    #categoria = models.ForeignKey(Categoria, default=None, blank=False, on_delete=models.CASCADE)\
+
+    def __str__(self):
+        return self.titulo
 
 class Denuncia(models.Model):
     descripcion = models.CharField(max_length=500)

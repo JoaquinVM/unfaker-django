@@ -38,7 +38,7 @@
               <div class="form-group d-flex justify-content-center h-10">
                 <input type="submit" value="Log In" class="btn btn-primary py-3 px-5">
               </div>
-              Don't have an Account? &nbsp <a href="signin.html"style="font-size: 17px;"><u> Register</u></a>
+              Don't have an Account? &nbsp <a href="{% url 'signin' %}"style="font-size: 17px;"><u> Register</u></a>
                <div class="row justify-content-center " style="color:black" >
               {% for message in messages %}
               {{message}}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import NoticiaForm
 from .forms import DenunciaForm
-#from .forms import UsuarioForm
+from .forms import UsuarioForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import get_user_model
 from django.contrib import messages
@@ -26,8 +26,8 @@ def signin_view(request):
                 messages.info(request,'Email ya usado')
                 return redirect('signin')
             else:
-                user=User.objects.create_user(username=username,password=contrasena1, email=email, nacionalidad=nacionalidad,
-                                      fecha_nacimiento=fecha_nacimiento,first_name=nombre,last_name=apellido, puntaje=0)
+                user=User.objects.create_user(username=username, password=contrasena1, email=email, nacionalidad= nacionalidad,
+                                      fecha_nacimiento=fecha_nacimiento, first_name=nombre, last_name=apellido, puntaje=0)
                 user.save();
                 messages.info(request,'Usuario creado')
                 return redirect('login')
@@ -44,7 +44,7 @@ def login_view(request):
         password = request.POST['password']
         user = auth.authenticate(username=username, password=password)
         if user is not None:
-            auth.login(request,user)
+            auth.login(request, user)
             return redirect('/')
         else:
             messages.info(request, 'Credencial invalida')

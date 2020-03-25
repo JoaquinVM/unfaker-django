@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="835cb5a8-f5ab-44f2-847a-6395d52443b0" name="Default Changelist" comment="denuncia">
+    <list default="true" id="835cb5a8-f5ab-44f2-847a-6395d52443b0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unfaker.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/unfaker.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unfaker/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/unfaker/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585006402229</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="auth">
+      <created>1585058638747</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1585058638747</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,13 +152,14 @@
     <MESSAGE value="Base de datos" />
     <MESSAGE value="factorizar templates" />
     <MESSAGE value="denuncia" />
-    <option name="LAST_COMMIT_MESSAGE" value="denuncia" />
+    <MESSAGE value="auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="auth" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="424" y="7" key="CommitChangelistDialog2" timestamp="1585006694975">
+    <state x="424" y="7" key="CommitChangelistDialog2" timestamp="1585058637782">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="424" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585006694975" />
+    <state x="424" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585058637782" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1584919675335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -167,10 +177,10 @@
     </state>
     <state x="555" y="62" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585054795614" />
     <state x="868" y="97" key="SettingsEditor/67.27.1853.930@67.27.1853.930" timestamp="1584804857997" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1585006407420">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1585058648829">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1585006407420" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1585058648829" />
     <state x="482" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1585020238022">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

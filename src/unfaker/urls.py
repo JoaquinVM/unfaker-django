@@ -20,9 +20,9 @@ from main.views import feed_view, new_view, publish_view, profile_view, signin_v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', feed_view, name='feed'),
-    path('new', new_view),
-    path('publish', publish_view),
-    path('profile', profile_view),
-    path('signin', signin_view  , name='signin'),
-    path('login', login_view  , name='login')
+    path('new', new_view, name='new'),
+    path('publish', publish_view, name="publish"),
+    path('profile', profile_view, name='profile'),
+    path('signin', signin_view, name='signin'),
+    path('login', login_view, name='login')
 ]

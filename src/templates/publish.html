@@ -14,7 +14,7 @@
       <div class="container">
         <div class="row block-9 no-gutters">
           <div class="col-lg-6 order-md-last d-flex">
-            <form method= 'POST' action="#" class="bg-light p-4 p-md-5 contact-form" enctype="multipart/form-data"> {% csrf_token %}
+            <form method= 'POST' action="#" class="bg-light p-4 p-md-5 contact-form" enctype="multipart/form-data">
               <div class="col-12 form-group">
                 <input type='file' onchange="readURL(this);" name="imagen" id="imagen">
               </div>
@@ -41,7 +41,7 @@
                 </select>
               </div>
               <div class="col-12 form-group">
-                <input type="text" class="form-control" placeholder="Tags">
+                <input type="text" class="form-control" placeholder="Tags"  >
               </div>
               <div class="col-12 form-group">
                 <textarea name="descripcion" id="descripcion" cols="30" rows="20" class="form-control" placeholder="Description"></textarea>
@@ -60,8 +60,7 @@
           <div class="">
             <br>
             <br>
-          	<div id="" style="width:500px ; height: 400px;">
-
+          	<div id="" style="width:550px ; height: 250px;">
               <br>
               <img id="blah" src="../static/logobonito.png" height="375" width="626">
             </div>

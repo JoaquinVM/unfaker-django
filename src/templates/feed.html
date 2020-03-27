@@ -1,9 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="ftco-section bg-light">
+<style>
+    .center-cropped {
+  width: 500px;
+  height: 300px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+</style>
+<section class="ftco-section bg-light"> {% csrf_token %}
       <div class="container">
         <div class="row d-flex">
+          {% for noticia in noticias %}
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+                <img class="center-cropped" src="{{ "../media/"|add:noticia.imagen }}">
+              </a>
+              <div class="text p-4 float-right d-block">
+              	<div class="topper d-flex align-items-center">
+              		<div class="one py-2 pl-3 pr-1 align-self-stretch">
+              			<span class="day">19</span>
+              		</div>
+              		<div class="two pl-0 pr-3 py-2 align-self-stretch">
+              			<span class="yr">2019</span>
+              			<span class="mos">October</span>
+              		</div>
+              	</div>
+              	<h3 class="heading mb-3"><a href="#">{{noticia.titulo}}</a></h3>
+                <p>{{noticia.descripcion|slice:"0:100"|add:"..." }}</p>
+                <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
               <a href="blog-single.html" class="block-20" style="background-image: url('../static/images/image_1.jpg');">
@@ -11,7 +41,7 @@
               <div class="text p-4 float-right d-block">
               	<div class="topper d-flex align-items-center">
               		<div class="one py-2 pl-3 pr-1 align-self-stretch">
-              			<span class="day">18</span>
+              			<span class="day">19</span>
               		</div>
               		<div class="two pl-0 pr-3 py-2 align-self-stretch">
               			<span class="yr">2019</span>
@@ -39,7 +69,7 @@
               		</div>
               	</div>
               	<h3 class="heading mb-3"><a href="#">All you want to know about industrial laws</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p>1 small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                 <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
               </div>
             </div>

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 # Create your models here.
 class Usuario(AbstractUser):
     id = models.AutoField(primary_key = True)
@@ -23,18 +24,25 @@ class Usuario(AbstractUser):
     is_staff = models.BooleanField(null=True)
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(null=True)
-    last_login = models.DateTimeField(null=True)
     date_joined = models.DateTimeField(null=True)
 
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} ({self.username})"
+
+
 class Categoria(models.Model):
-    nombre = models.CharField(max_length= 30)
+    nombre = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.nombre
+
 
 class Noticia(models.Model):
-    titulo = models.CharField(max_length=100)
-    descripcion = models.CharField(max_length=500)
-    fuente = models.CharField(max_length= 100)
+    titulo = models.TextField()
+    descripcion = models.TextField()
+    fuente = models.CharField(max_length=100)
     puntaje = models.IntegerField()
-    creador = models.ForeignKey(Usuario,null=True, blank=False, on_delete=models.CASCADE)
+    creador = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now_add=True)
     paises = (('Argentina', 'Argentina'), ('Bolivia', 'Bolivia'), ('Brasil', 'Brasil'),
               ('Chile', 'Chile'), ('Colombia', 'Colombia'), ('Ecuador', 'Ecuador'),

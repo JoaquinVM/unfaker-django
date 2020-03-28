@@ -6,10 +6,14 @@
       <change beforePath="$PROJECT_DIR$/src/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/images/about.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/images/about.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/images/person_1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/images/person_1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/images/person_2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/images/person_2.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/feed.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/feed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/publish.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/publish.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/signin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/unfaker.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/unfaker.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unfaker/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/unfaker/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/unfaker/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/unfaker/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,10 +64,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/templates" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\Desktop\unfaker\unfaker-django\src\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\UPB\Certi Python\unfaker-django\src\static" />
       <recent name="C:\Users\ASUS\Desktop\unfaker\unfaker-django\src\main" />

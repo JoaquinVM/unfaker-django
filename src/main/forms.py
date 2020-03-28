@@ -1,7 +1,8 @@
 from django import forms
 
 from .models import Noticia
-#from .models import Usuario
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserChangeForm
 from .models import Denuncia
 
 
@@ -42,3 +43,8 @@ class DenunciaForm (forms.Form):
         denuncia = Denuncia(descripcion=data['descripcion'], email=data['email'],
                           tipo=data['tipo'])
         denuncia.save()
+
+class PerfilEditadoForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields= ('email', 'username', 'first_name', 'last_name')

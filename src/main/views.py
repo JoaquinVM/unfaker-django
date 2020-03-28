@@ -9,6 +9,7 @@ from django.contrib.auth import get_user_model
 from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
+from .models import Noticia
 
 User = get_user_model()
 # Create your views here.
@@ -64,7 +65,7 @@ def signin_view(request):
         else:
             messages.info(request,'Contraseñas diferentes')
             return redirect('signin')
-        return redirect('/')
+
     else:
         return render(request, "signin.html")
 
@@ -82,8 +83,10 @@ def login_view(request):
     else:
         return render(request, "login.html")
 
+
 def feed_view(request):
-    return render(request, "feed.html", {})
+    noticias = Noticia.objects.all()
+    return render(request, "feed.html", {'noticias': noticias})
 
 
 def new_view(request):
@@ -109,20 +112,23 @@ def profile_view(request):
 def publish_view(request):
     form = NoticiaForm(request.POST or None)
 
+    context = {'user': request.user}
+
     if request.method == 'POST' and request.FILES['imagen'] and form.is_valid():
         myfile = request.FILES['imagen']
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile) # saves the file to `media` folder
         uploaded_file_url = fs.url(filename) # gets the url
-        form.save(filename)
-        return render(request, 'publish.html', {
-            'uploaded_file_url': uploaded_file_url})
+        form.save(filename, request.user, request.POST['titulo'], request.POST['descripcion'])
+        context['uploaded_file_url'] = uploaded_file_url
+        messages.info(request, request.user)
+        return render(request, 'publish.html', context)
+    return render(request, 'publish.html', context)
 
 def logout_view(request):
     auth.logout(request)
     return redirect('/')
 
-    return render(request, 'publish.html')
     # form = NoticiaForm(request.POST or None)
     # if form.is_valid() and request.POST.get('imagen', False):
     #     imagen = request.POST.get('imagen', False)

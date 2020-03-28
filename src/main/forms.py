@@ -7,15 +7,15 @@ from .models import Denuncia
 
 
 class NoticiaForm (forms.Form):
-    titulo = forms.CharField(max_length=100)
-    descripcion = forms.CharField(max_length=500)
+    titulo = forms.Textarea(attrs={'rows': 20, 'cols': 15})
+    descripcion = forms.Textarea(attrs={'rows': 20, 'cols': 15})
     fuente = forms.CharField(max_length=100)
     pais = forms.CharField(max_length=20)
 
-    def save(self, imagen):
+    def save(self, imagen, user, titulo, descripcion):
         data = self.cleaned_data
-        noticia = Noticia(titulo=data['titulo'], descripcion=data['descripcion'],
-                          fuente=data['fuente'], pais=data['pais'], puntaje=0, imagen=imagen)
+        noticia = Noticia(titulo=titulo, descripcion=descripcion,
+                          fuente=data['fuente'], pais=data['pais'], puntaje=0, imagen=imagen, creador=user)
         noticia.save()
 
 

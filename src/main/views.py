@@ -109,18 +109,17 @@ def profile_view(request):
     return render(request, "profile.html", context)
 
 def  profileedit_view(request):
+    form= PerfilEditadoForm(request.POST or None)
     if request.method== 'POST':
-        form= PerfilEditadoForm(request.POST, instance = request.user)
+        form.instance = request.user
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('profileedit')
         else:
             form= PerfilEditadoForm(instance=request.user)
             args= {'form': form}
-            return render(request, 'profileedit', args)
-    form = UsuarioForm(request.POST or None)
-    if form.is_valid():
-        form.save()
+            return render(request, 'profileedit.html', args)
+
     context = {
         'form': form
     }

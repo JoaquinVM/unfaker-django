@@ -1,10 +1,9 @@
 import json
 import urllib
 from django.shortcuts import render, redirect
-from .forms import NoticiaForm
-from .forms import DenunciaForm
-from .forms import UsuarioForm
-from django.contrib.auth.models import auth
+from .forms import NoticiaForm, DenunciaForm, UsuarioForm, PerfilEditadoForm
+from django.contrib.auth.models import auth, User
+from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth import get_user_model
 from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
@@ -109,6 +108,23 @@ def profile_view(request):
     }
     return render(request, "profile.html", context)
 
+def  profileedit_view(request):
+    if request.method== 'POST':
+        form= PerfilEditadoForm(request.POST, instance = request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+        else:
+            form= PerfilEditadoForm(instance=request.user)
+            args= {'form': form}
+            return render(request, 'profileedit', args)
+    form = UsuarioForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context = {
+        'form': form
+    }
+    return render(request, "profileedit.html", context)
 
 def publish_view(request):
     form = NoticiaForm(request.POST or None)

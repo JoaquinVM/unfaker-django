@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main'
@@ -124,6 +125,6 @@ STATICFILES_DIRS = [
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-AUTH_USER_MODEL = 'main.Usuario'
+AUTH_USER_MODEL = 'main.Usuario' #aca se supone que hay error
 RECAPTCHA_SECRET_KEY= '6Lfy5eAUAAAAAHfIj8pMqrI8NidpPmUMU5fserMD'
 RECAPTCHA_PUBLIC_KEY= '6Lfy5eAUAAAAAPOVJWqA0wF39Tyx0swsksY8KyOg'

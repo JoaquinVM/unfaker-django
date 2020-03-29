@@ -23,7 +23,7 @@ def signin_view(request):
         contrasena1 = request.POST['contrasena1']
         contrasena2 = request.POST['contrasena2']
         if contrasena1==contrasena2:
-            if User .objects.filter(username=username).exists():
+            if User.objects.filter(username=username).exists():
                 messages.info(request,'Usuario ya usado')
                 return redirect('signin')
             elif User.objects.filter(email=email).exists():
@@ -136,7 +136,7 @@ def publish_view(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile) # saves the file to `media` folder
         uploaded_file_url = fs.url(filename) # gets the url
-        form.save(filename, request.user, request.POST['titulo'], request.POST['descripcion'])
+        form.save(filename, request.user, request.POST['titulo'], request.POST['descripcion'], request.POST['categorias'])
         context['uploaded_file_url'] = uploaded_file_url
         messages.info(request, request.user)
         return render(request, 'publish.html', context)

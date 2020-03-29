@@ -14,7 +14,7 @@
       <div class="container">
         <div class="row block-9 no-gutters">
           <div class="col-lg-6 order-md-last d-flex">
-            <form method= 'POST' action="#" class="bg-light p-4 p-md-5 contact-form" enctype="multipart/form-data">
+            <form method= 'POST' action="#" class="bg-light p-4 p-md-5 contact-form" enctype="multipart/form-data">{% csrf_token %}
               <div class="col-12 form-group">
                 <input type='file' onchange="readURL(this);" name="imagen" id="imagen">
               </div>
@@ -41,7 +41,7 @@
                 </select>
               </div>
               <div class="col-12 form-group">
-                <input type="text" class="form-control" placeholder="Tags"  >
+                <input id="categorias" name="categorias" type="text" placeholder="Tags" data-role="tagsinput" class="form-control">
               </div>
               <div class="col-12 form-group">
                 <textarea name="descripcion" id="descripcion" cols="30" rows="20" class="form-control" placeholder="Description"></textarea>

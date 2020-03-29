@@ -12,7 +12,7 @@
 <section class="ftco-section bg-light"> {% csrf_token %}
       <div class="container">
         <div class="row d-flex">
-          {% for noticia in noticias %}
+          {% for noticia in noticias reversed %}
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
                 <a href="{% url 'new' id=noticia.id%}" class="block-20 center-cropped" style="background-image: url({{ "../media/"|add:noticia.imagen }});">
@@ -27,7 +27,7 @@
               			<span class="mos">October</span>
               		</div>
               	</div>
-              	<h3 class="heading mb-3"><a href="#">{{noticia.titulo}}</a></h3>
+              	<h3 class="heading mb-3"><a href="{% url 'new' id=noticia.id%}">{{noticia.titulo}}</a></h3>
                 <p>{{noticia.descripcion|slice:"0:100"|add:"..." }}</p>
                 <p><a href="{% url 'new' id=noticia.id%}" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
               </div>

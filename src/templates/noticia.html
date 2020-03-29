@@ -35,10 +35,9 @@
 
             <div class="tag-widget post-tag-container mb-5 mt-5">
               <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">Life</a>
-                <a href="#" class="tag-cloud-link">Sport</a>
-                <a href="#" class="tag-cloud-link">Tech</a>
-                <a href="#" class="tag-cloud-link">Travel</a>
+                {% for cat in noticia.categorias.all %}
+                <a href="#" class="tag-cloud-link">{{cat.nombre}}</a>
+                {% endfor %}
               </div>
             </div>
             <h3>Rate</h3>
@@ -74,7 +73,7 @@
                 <img src="../static/images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
               </div>
               <div class="desc">
-                <h3>Autor</h3>
+                <h3>{{noticia.creador|stringformat:"i"}}</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus ita que, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
               </div>
             </div>

@@ -26,7 +26,7 @@ class Usuario(AbstractUser):
     date_joined = models.DateTimeField(null=True)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} ({self.username})"
+        return f"{self.first_name} {self.last_name}"
 
 
 class Categoria(models.Model):
@@ -49,7 +49,7 @@ class Noticia(models.Model):
               ('Venezuela', 'Venezuela'), ('Internacional', 'Internacional'))
     pais = models.CharField(choices=paises, default='Internacional',max_length=20)
     imagen = models.CharField(max_length=100, default='default')
-    #categoria = models.ForeignKey(Categoria, default=None, blank=False, on_delete=models.CASCADE)
+    categorias = models.ManyToManyField(Categoria)
 
     def __str__(self):
         return self.titulo
@@ -60,7 +60,7 @@ class Noticia(models.Model):
 class Denuncia(models.Model):
     descripcion = models.CharField(max_length=500)
     correo = models.CharField(null=True ,max_length=30)
-    #fecha = models.DateTimeField(auto_now_add=True)
+    fecha = models.DateTimeField(null=True, auto_now_add=True)
     tipos = (('FN', 'Fake New'), ('HS', 'Harassment'), ('H', 'Hate'), ('N', 'Nudes'),
              ('PP', 'Personal Profit'), ('S', 'Spam'), ('SS', 'Suicide or Self-harm'),
              ('T', 'Terrorism'), ('V', 'Violence'), ('S', 'Others'))

@@ -1,7 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser,User
-from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.models import AbstractUser, User
 # Create your models here.
+
 class Usuario(AbstractUser):
     id = models.AutoField(primary_key = True)
     first_name = models.CharField(max_length=50)

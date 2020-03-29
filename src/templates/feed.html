@@ -15,7 +15,7 @@
           {% for noticia in noticias %}
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
-                <img class="center-cropped" src="{{ "../media/"|add:noticia.imagen }}">
+                <a href="{% url 'new' id=noticia.id%}" class="block-20 center-cropped" style="background-image: url({{ "../media/"|add:noticia.imagen }});">
               </a>
               <div class="text p-4 float-right d-block">
               	<div class="topper d-flex align-items-center">
@@ -29,7 +29,7 @@
               	</div>
               	<h3 class="heading mb-3"><a href="#">{{noticia.titulo}}</a></h3>
                 <p>{{noticia.descripcion|slice:"0:100"|add:"..." }}</p>
-                <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
+                <p><a href="{% url 'new' id=noticia.id%}" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
               </div>
             </div>
           </div>

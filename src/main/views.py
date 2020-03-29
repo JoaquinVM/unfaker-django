@@ -89,12 +89,13 @@ def feed_view(request):
     return render(request, "feed.html", {'noticias': noticias})
 
 
-def new_view(request):
+def new_view(request, id):
     form = DenunciaForm(request.POST or None)
+    noticia = Noticia.objects.get(id=id)
     if form.is_valid():
         form.save()
     context = {
-        'form': form
+        'noticia': noticia
     }
     return render(request, "noticia.html", context)
 

@@ -16,14 +16,15 @@
     	<div class="container">
     		<div class="row d-flex">
     			<div class="col-md-6 d-flex">
-    				<div class="img d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end" style="background-image:url(../static/images/about.jpg);">
-							<button class="btn btn-primary py-3 px-5" onclick="window.location.href='profileedit'" >
+    				<div class="img d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end" style="background-image:url(../static/images/about.jpg);
+								width: 600px; height: 530px;">
+						<button class="btn btn-primary py-3 px-5" onclick="window.location.href='profileedit'" >
 								Edit
 
               </button>
     				</div>
     			</div>
-    			<div class="col-md-6 pl-md-5 py-md-5">
+    			<div class="col-md-6 pl-md-5 py-md-3">
     				<div class="row justify-content-start pt-3 pb-3">
 		          <div class="col-md-12 heading-section ftco-animate">
 		          	<span class="subheading">{{request.user.username}}</span>

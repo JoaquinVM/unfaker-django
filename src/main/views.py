@@ -3,8 +3,8 @@ import urllib
 from django.shortcuts import render, redirect
 from .forms import NoticiaForm, DenunciaForm, UsuarioForm, PerfilEditadoForm
 from django.contrib.auth.models import auth, User
-from django.contrib.auth.forms import UserChangeForm
-from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import get_user_model, update_session_auth_hash
 from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
@@ -121,7 +121,7 @@ def  profileedit_view(request):
             return render(request, 'profileedit.html', args)
 
     context = {
-        'form': form
+        'form1': form
     }
     return render(request, "profileedit.html", context)
 
@@ -155,3 +155,20 @@ def logout_view(request):
     #     'form': form
     # }
     # return render(request, "publish.html", context)
+
+def change_password_view(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Contraseña cambiada con éxito')
+            return redirect('profileedit')
+        else:
+            messages.error(request, 'Ha ocurrido un error.')
+    else:
+        form = PasswordChangeForm(request.user)
+    context = {
+        'form2': form
+    }
+    return render(request, 'profileedit.html', context)

@@ -32,26 +32,29 @@
 		            <div class="tabulation-2 mt-4">
 									<ul class="nav nav-pills nav-fill d-md-flex d-block">
 									  <li class="nav-item mb-md-0 mb-2">
-									    <a class="nav-link active py-2" data-toggle="tab" href="#home1">Información</a>
+									    <a class="nav-link active py-2" data-toggle="tab" href="#home1">Information</a>
 									  </li>
 									  <li class="nav-item px-lg-2 mb-md-0 mb-2">
-									    <a class="nav-link py-2" data-toggle="tab" href="#home2">Siguiendo</a>
+									    <a class="nav-link py-2" data-toggle="tab" href="#home2">Password</a>
 									  </li>
 									  <li class="nav-item">
-									    <a class="nav-link py-2 mb-md-0 mb-2" data-toggle="tab" href="#home3">Publicado</a>
+									    <a class="nav-link py-2 mb-md-0 mb-2" data-toggle="tab" href="#home3">Publish</a>
 									  </li>
 									</ul>
 									<div class="tab-content bg-light rounded mt-2" >
 									  <div class="tab-pane container p-0 active" id="home1">
 									  <form method="POST" action="#"> {% csrf_token %}
 									  	<p>Por favor, no dejes ningún campo en blanco.
-										  {{ form.as_ul }}
+										 <center> {{ form1.as_ul }}
 					  					<button class="btn btn-primary py-1 px-2" type="submit" > Save </button>
-				  						</p>
+				  	</center>
+					  </p>
 					  					</form>
 									  </div>
 									  <div class="tab-pane container p-0 fade" id="home2">
-									  	<p>Right now, you aren't following anyone.</p>
+									  	<p> <center> Por favor, escriba en los siguientes campos.
+										  {{ form2.as_ul }}
+					  					<button class="btn btn-primary py-1 px-2" type="submit" > Save </button></center></p>
 									  </div>
 									  <div class="tab-pane container p-0 fade" id="home3">
 									  	<p>You hadn't write any new, do you want to publish your first article?.</p>

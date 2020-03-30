@@ -92,7 +92,7 @@ def new_view(request, id):
     form = DenunciaForm(request.POST or None)
     noticia = Noticia.objects.get(id=id)
     if form.is_valid():
-        form.save()
+        form.save(noticia)
     context = {
         'noticia': noticia
     }

@@ -18,7 +18,7 @@ class Usuario(AbstractUser):
     puntaje = models.IntegerField(null=True)
     generos=( ('M', 'Masculino'), ('F', 'Femenino'))
     genero = models.CharField(choices=generos, default='FN', max_length=10)
-    #descripcion = models.CharField(max_length=140, default='¡Hola mundo!')
+    descripcion = models.CharField(max_length=140, default='El usuario no ha escrito su descripcion aun.')
     last_login = models.DateTimeField(null=True)
     is_staff = models.BooleanField(null=True)
     is_active = models.BooleanField(default=True)
@@ -27,6 +27,10 @@ class Usuario(AbstractUser):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
+    def nacimiento(self):
+        if self.fecha_nacimiento:
+            return self.fecha_nacimiento.to_python().strftime("%d/%m/%Y")
 
 
 class Categoria(models.Model):
@@ -59,7 +63,8 @@ class Noticia(models.Model):
 
 class Denuncia(models.Model):
     descripcion = models.CharField(max_length=500)
-    correo = models.CharField(null=True ,max_length=30)
+    noticia = models.ForeignKey(Noticia, on_delete=models.CASCADE)
+    email = models.CharField(null=True ,max_length=30)
     fecha = models.DateTimeField(null=True, auto_now_add=True)
     tipos = (('FN', 'Fake New'), ('HS', 'Harassment'), ('H', 'Hate'), ('N', 'Nudes'),
              ('PP', 'Personal Profit'), ('S', 'Spam'), ('SS', 'Suicide or Self-harm'),

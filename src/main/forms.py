@@ -49,10 +49,10 @@ class DenunciaForm (forms.Form):
     descripcion = forms.CharField(max_length=500)
     email = forms.CharField(max_length=30)
     tipo = forms.CharField(max_length=30)
-    def save(self):
+    def save(self, noticia):
         data = self.cleaned_data
         denuncia = Denuncia(descripcion=data['descripcion'], email=data['email'],
-                          tipo=data['tipo'])
+                          tipo=data['tipo'], noticia=noticia)
         denuncia.save()
 
 class PerfilEditadoForm(UserChangeForm):

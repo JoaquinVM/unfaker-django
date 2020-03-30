@@ -46,15 +46,15 @@
 									  <form method="POST" action="#"> {% csrf_token %}
 									  	<p>Por favor, no dejes ningún campo en blanco.
 										 <center> {{ form1.as_ul }}
-					  					<button class="btn btn-primary py-1 px-2" type="submit" > Save </button>
-				  	</center>
-					  </p>
+					  							<button class="btn btn-primary py-1 px-2" type="submit" > Save </button>
+									  	</center> </p>
 					  					</form>
 									  </div>
 									  <div class="tab-pane container p-0 fade" id="home2">
-									  	<p> <center> Por favor, escriba en los siguientes campos.
-										  {{ form2.as_ul }}
-					  					<button class="btn btn-primary py-1 px-2" type="submit" > Save </button></center></p>
+										  <form method="POST" action="#"> {% csrf_token %}
+											  <p>  Por favor, escriba en los siguientes campos.
+										  <center> {{ form2.as_ul }}
+												  <button class="btn btn-primary py-1 px-2" type="submit" > Save </button></center></p></form>>
 									  </div>
 									  <div class="tab-pane container p-0 fade" id="home3">
 									  	<p>You hadn't write any new, do you want to publish your first article?.</p>

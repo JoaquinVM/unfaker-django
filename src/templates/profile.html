@@ -44,18 +44,85 @@
 									</ul>
 									<div class="tab-content bg-light rounded mt-2" >
 									  <div class="tab-pane container p-0 active" id="home1">
-					  					{% if user.nacimiento %}
-										  <p>{{user.nacimiento}}</p>
-					  					{% endif %}
-									  	<p>{{user.first_name}} es de {{request.user.nacionalidad}}. <br>
-				 							Contáctale por su correo electrónico, {{request.user.email}}</p>
-					  					<p>{{user.descripcion}}</p>
+					  					 	<p><div class="item">
+             							    <div class="testimony-wrap py-1">
+												<div class="d-flex align-items-center">
+                    							<div class="pl-3">
+		                   						{{user.descripcion}}
+												</div>
+	                						  </div>
+             							   </div>
+             							 </div>
+										  <div class="item">
+             							    <div class="testimony-wrap py-1">
+												<div class="d-flex align-items-center">
+                    							<div class="pl-3">
+		                   						{{user.first_name}} es de {{request.user.nacionalidad}}.
+		                 						 </div>
+	                						  </div>
+             							   </div>
+             							 </div>
+					 			 <div class="item">
+             							    <div class="testimony-wrap py-1">
+												<div class="d-flex align-items-center">
+                    							<div class="pl-3">
+		                   						Contáctale por su correo electrónico, {{request.user.email}}
+												</div>
+	                						  </div>
+             							   </div>
+             							 </div>
+					  					 </p>
 									  </div>
 									  <div class="tab-pane container p-0 fade" id="home2">
-									  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+									  	<p> <div class="item">
+             							   <div class="testimony-wrap py-1">
+                  							  <div class="d-flex align-items-center">
+                    							<div class="user-img" style="background-image: url(../static/images/person_7.jpg)"></div>
+                    							<div class="pl-3">
+		                   						 <p class="name">Alberto Morales</p>
+										  			<span class="position">nojoaquin</span>
+		                 						 </div>
+	                						  </div>
+             							   </div>
+             							 </div>
+										 <div class="item">
+             							   <div class="testimony-wrap py-1">
+                  							  <div class="d-flex align-items-center">
+                    							<div class="user-img" style="background-image: url(../static/images/person_8.jpg)"></div>
+                    							<div class="pl-3">
+		                   						 <p class="name">Fernando del Rincón</p>
+										  			<span class="position">fdelrincon</span>
+		                 						 </div>
+	                						  </div>
+             							   </div>
+             							 </div>
+										</p>
 									  </div>
+
 									  <div class="tab-pane container p-0 fade" id="home3">
-									  	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+									  	<p> <div class="item">
+             							    <div class="testimony-wrap py-1">
+												<div class="d-flex align-items-center">
+                    							<div class="pl-3">
+		                   						Paulo Dybala rompió el silencio tras ser diagnosticado con coronavirus <br>
+										  			<span class="position">puntuación</span>
+		                 						 </div>
+	                						  </div>
+             							   </div>
+             							 </div>
+
+										<div class="item">
+             							    <div class="testimony-wrap py-1">
+												<div class="d-flex align-items-center">
+                    							<div class="pl-3">
+		                   						Alto ejecutivo de AXS muere por coronavirus, tenía 50 años <br>
+										  			<span class="position">puntuación</span>
+		                 						 </div>
+	                						  </div>
+             							   </div>
+             							 </div>
+
+										</p>
 									  </div>
 									</div>
 								</div>

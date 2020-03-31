@@ -37,9 +37,6 @@
 									  <li class="nav-item px-lg-2 mb-md-0 mb-2">
 									    <a class="nav-link py-2" data-toggle="tab" href="#home2">Password</a>
 									  </li>
-									  <li class="nav-item">
-									    <a class="nav-link py-2 mb-md-0 mb-2" data-toggle="tab" href="#home3">Publish</a>
-									  </li>
 									</ul>
 									<div class="tab-content bg-light rounded mt-2" >
 									  <div class="tab-pane container p-0 active" id="home1">
@@ -58,7 +55,7 @@
               </div>
               <div class="form-group">
 				  <label for="descripcion" >Descripcion:</label>
-				  <textarea class="form-control" cols="30" rows="10" name="descripcion" id ="descripcion" >{{user.descripcion}}</textarea>
+				  <textarea class="form-control" cols="30" rows="7" name="descripcion" id ="descripcion" >{{user.descripcion}}</textarea>
               </div>
               <div class="form-group d-flex justify-content-center h-10">
                 <input type="submit" value="Edit" name="edit" class="btn btn-primary py-3 px-5">
@@ -70,6 +67,7 @@
                   </div>
               {% endfor %}
               </div>
+
             </form>
 									  </div>
 									  <div class="tab-pane container p-0 fade" id="home2">
@@ -97,9 +95,6 @@
               {% endfor %}
               </div>
             </form>
-									  </div>
-									  <div class="tab-pane container p-0 fade" id="home3">
-									  	<p>You hadn't write any new, do you want to publish your first article?.</p>
 									  </div>
 									</div>
 								</div>

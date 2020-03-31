@@ -17,12 +17,14 @@
             </p>
 
             <div class=" d-flex justify-content-center">
+              <span class="day">({{noticia.getPuntaje}})</span> &nbsp;
               <span class="">Fake</span> &nbsp&nbsp
-              <span class="fa fa-star checked"></span>&nbsp&nbsp
-              <span class="fa fa-star checked"></span>&nbsp&nbsp
-              <span class="fa fa-star checked"></span>&nbsp&nbsp
-              <span class="fa fa-star"></span>&nbsp&nbsp
-              <span class="fa fa-star"></span>&nbsp&nbsp
+              {% for i in noticia.rango %}
+                <span class="fa fa-star checked"></span>&nbsp&nbsp
+              {% endfor %}
+              {% for i in noticia.rangoO %}
+                <span class="fa fa-star"></span>&nbsp&nbsp
+              {% endfor %}
               <span class="checked">Real</span>
             </div>
             <br>
@@ -40,6 +42,8 @@
                 {% endfor %}
               </div>
             </div>
+
+            {% if no_voto %}
             <h3>Rate</h3>
             <form method='POST'  action="#" class="bg-light form-group "> {% csrf_token %}
               <div id="form-wrapper">
@@ -64,7 +68,7 @@
                 <div class="g-recaptcha" data-sitekey="6Lfy5eAUAAAAAPOVJWqA0wF39Tyx0swsksY8KyOg"></div>
               </div>
               <div class="form-group">
-                <input type="submit" value="Vote" class="btn btn-primary py-3 px-5">
+                <input type="submit" value="Vote" name="voto" class="btn btn-primary py-3 px-5">
               </div>
             </form>
 
@@ -77,6 +81,7 @@
                 <p>{{noticia.creador.descripcion}}</p>
               </div>
             </div>
+            {% endif %}
 
 
             <div class="">
@@ -109,7 +114,7 @@
                     <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control"></textarea>
                   </div>
                   <div class="form-group">
-                    <input type="submit" value="Send complaint" class="btn py-3 px-4 btn-primary">
+                    <input type="submit" value="Send complaint" name="denuncia" class="btn py-3 px-4 btn-primary">
                   </div>
 
                 </form>
@@ -118,11 +123,22 @@
 
           </div> <!-- .col-md-8 -->
           <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
-            <div class="sidebar-box">
-              <form action="#" class="search-form">
-                <div class="form-group">
-                  <span class="icon icon-search"></span>
-                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+            <div class="">
+              <form action="#" class="form-group">
+                <div class="form-group row">
+                  <input type="text" class="form-control col-md-8" placeholder="Type a word">
+                  <input type="submit" class="btn  btn-primary col-md-4" value="Search">
+                </div>
+              </form>
+            </div>
+            <div class="">
+              <form action="#" class="form-group">
+                <div class="form-group row">
+                  <label for="descripcion">Search by Categories:</label>
+                  <input type="text" class="form-control col-md-8" placeholder="" data-role="tagsinput">
+                  <br>
+                  <br>
+                  <input type="submit" class="btn  btn-primary col-md-4" value="Search">
                 </div>
               </form>
             </div>

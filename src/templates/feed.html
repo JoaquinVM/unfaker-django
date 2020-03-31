@@ -10,7 +10,38 @@
 }
 </style>
 <section class="ftco-section bg-light"> {% csrf_token %}
+
       <div class="container">
+          <div class="">
+              <div class="col-xs">
+              <form action="#" class="form-group">
+                <div class="form-group row">
+                    <div class="col-12 form-group">
+                        <label class="">Search by words:</label>
+                        <input type="text" class="form-control" placeholder="Type a word">
+                    </div>
+                    <div class="col-12 form-group">
+                        <input type="submit" class="btn btn-primary" value="Search">
+                    </div>
+
+                </div>
+              </form>
+              </div>
+            <div class="col-xs">
+              <form action="#" class="form-group">
+                <div class="form-group row">
+                    <div class="col-12 form-group">
+                        <label for="descripcion">Search by Categories:</label>
+                        <input id="descripcion" type="text" class="form-control col-xs"  data-role="tagsinput">
+                    </div>
+                    <div class="col-12 form-group">
+                        <input type="submit" class="btn  btn-primary col-xs" value="Search">
+                    </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
         <div class="row d-flex">
           {% for noticia in noticias reversed %}
           <div class="col-md-4 d-flex ftco-animate">
@@ -20,11 +51,11 @@
               <div class="text p-4 float-right d-block">
               	<div class="topper d-flex align-items-center">
               		<div class="one py-2 pl-3 pr-1 align-self-stretch">
-              			<span class="day">19</span>
+              			<span class="day" style="font-size: 20px">{{noticia.getPuntaje}}</span>
               		</div>
               		<div class="two pl-0 pr-3 py-2 align-self-stretch">
-              			<span class="yr">2019</span>
-              			<span class="mos">October</span>
+              			<span class="yr">{{noticia.getFecha}}</span>
+              			<span class="mos">{{noticia.getYear}}</span>
               		</div>
               	</div>
               	<h3 class="heading mb-3"><a href="{% url 'new' id=noticia.id%}">{{noticia.titulo}}</a></h3>
@@ -51,5 +82,6 @@
           </div>
         </div>
       </div>
+
     </section>
 {% endblock %}

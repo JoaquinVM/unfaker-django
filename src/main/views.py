@@ -91,10 +91,18 @@ def feed_view(request):
 def new_view(request, id):
     form = DenunciaForm(request.POST or None)
     noticia = Noticia.objects.get(id=id)
-    if form.is_valid():
-        form.save(noticia)
+
+    if request.method == "POST":
+        if 'voto' in request.POST:
+            voto = request.POST['debt-amount']
+            noticia.actualizarPuntaje(request.user, voto, request.user.calc_puntaje())
+        if 'denuncia' in request.POST:
+            if form.is_valid():
+                form.save(noticia)
+
     context = {
-        'noticia': noticia
+        'noticia': noticia,
+        'no_voto': request.user not in noticia.usuarios.all()
     }
     return render(request, "noticia.html", context)
 

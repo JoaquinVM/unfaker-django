@@ -74,7 +74,19 @@
               </div>
               <div class="desc">
                 <h3><b>Autor: </b> <br> {{noticia.creador}}</h3>
-                <p>{{noticia.creador.descripcion}}</p>
+                <p>{{noticia.creador.descripcion}}</p> <br><br><br>
+                <p>
+                   <input type="button" class="btn btn-primary py-3 px-5"  value="Follow" onclick="return change(this);" />
+                      <script type="text/javascript">
+                       function change( el )
+                       {
+                          if ( el.value === "Unfollow" )
+                            el.value = "Follow";
+                          else
+                            el.value = "Unfollow";
+                       }
+                      </script>
+                </p>
               </div>
             </div>
 

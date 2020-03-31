@@ -76,6 +76,7 @@ class Usuario(AbstractUser):
     username = models.CharField(max_length=7, unique=True)
     password = models.CharField(default='', max_length=20)
     email = models.CharField(max_length=30, default='')
+    imagen = models.CharField(max_length=100, default='about.jpg')
     fecha_nacimiento = models.DateField(null=True)
     nacionalidades=  (('Argentina', 'Argentina'), ('Bolivia', 'Bolivia'), ('Brasil', 'Brasil'),
               ('Chile', 'Chile'), ('Colombia', 'Colombia'), ('Ecuador', 'Ecuador'),
@@ -91,6 +92,7 @@ class Usuario(AbstractUser):
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(null=True)
     date_joined = models.DateTimeField(null=True)
+    siguiendo = models.ManyToManyField('Usuario')
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

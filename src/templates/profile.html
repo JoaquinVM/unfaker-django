@@ -16,7 +16,7 @@
     	<div class="container">
     		<div class="row d-flex">
     			<div class="col-md-6 d-flex">
-    				<div class="img d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end" style="background-image:url(../static/images/about.jpg);
+    				<div class="img d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end" style="background-image:url({{ "../media/"|add:user.imagen }});
 								width: 600px; height: 530px;">
 						<button class="btn btn-primary py-3 px-5" onclick="window.location.href='profileedit'" >
 								Edit
@@ -74,53 +74,37 @@
 					  					 </p>
 									  </div>
 									  <div class="tab-pane container p-0 fade" id="home2">
-									  	<p> <div class="item">
+									  	<p>
+											{% for u in siguiendo %}
+											<div class="item">
              							   <div class="testimony-wrap py-1">
                   							  <div class="d-flex align-items-center">
-                    							<div class="user-img" style="background-image: url(../static/images/person_7.jpg)"></div>
+                    							<div class="user-img" style="background-image: url({{ "../media/"|add:u.imagen }})"></div>
                     							<div class="pl-3">
-		                   						 <p class="name">Alberto Morales</p>
-										  			<span class="position">nojoaquin</span>
+		                   						 <p class="name">{{u}}</p>
+										  			<span class="position">{{u.username}}</span>
 		                 						 </div>
 	                						  </div>
              							   </div>
              							 </div>
-										 <div class="item">
-             							   <div class="testimony-wrap py-1">
-                  							  <div class="d-flex align-items-center">
-                    							<div class="user-img" style="background-image: url(../static/images/person_8.jpg)"></div>
-                    							<div class="pl-3">
-		                   						 <p class="name">Fernando del Rincón</p>
-										  			<span class="position">fdelrincon</span>
-		                 						 </div>
-	                						  </div>
-             							   </div>
-             							 </div>
+										  {% endfor %}
 										</p>
 									  </div>
 
 									  <div class="tab-pane container p-0 fade" id="home3">
-									  	<p> <div class="item">
+									  	<p>
+										  {% for noticia in noticias %}
+											<div class="item">
              							    <div class="testimony-wrap py-1">
 												<div class="d-flex align-items-center">
                     							<div class="pl-3">
-		                   						Paulo Dybala rompió el silencio tras ser diagnosticado con coronavirus <br>
-										  			<span class="position">puntuación</span>
+		                   						{{noticia.titulo}} <br>
+										  			<span class="position">{{noticia.getPuntaje}}</span>
 		                 						 </div>
 	                						  </div>
              							   </div>
              							 </div>
-
-										<div class="item">
-             							    <div class="testimony-wrap py-1">
-												<div class="d-flex align-items-center">
-                    							<div class="pl-3">
-		                   						Alto ejecutivo de AXS muere por coronavirus, tenía 50 años <br>
-										  			<span class="position">puntuación</span>
-		                 						 </div>
-	                						  </div>
-             							   </div>
-             							 </div>
+										  {% endfor %}
 
 										</p>
 									  </div>

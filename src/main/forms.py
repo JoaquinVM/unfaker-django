@@ -20,7 +20,7 @@ class NoticiaForm (forms.Form):
     def save(self, imagen, user, titulo, descripcion, categorias):
         data = self.cleaned_data
         noticia = Noticia(titulo=titulo, descripcion=descripcion,
-                          fuente=data['fuente'], pais=data['pais'], puntaje=0, imagen=imagen, creador=user)
+                          fuente=data['fuente'], pais=data['pais'], puntaje=user.calc_puntaje(), imagen=imagen, creador=user)
         cats = []
         for cat in categorias.split(','):
             if not Categoria.objects.filter(nombre=cat).exists():

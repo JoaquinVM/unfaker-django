@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 from .models import Noticia
+from django.http import HttpResponseNotFound
 
 User = get_user_model()
 # Create your views here.
@@ -82,9 +83,42 @@ def login_view(request):
     else:
         return render(request, "login.html")
 
+from django.db.models import Q
+def explore_view(request, texto=None):
+    noticias = Noticia.objects.all()
+    context = {'word': "", 'categoria':""}
+    if request.method == "POST":
+        if "word" in request.POST:
+            noticias = Noticia.objects.filter(titulo__icontains=request.POST['input'])
+            context['word'] = request.POST['input']
+        elif "categoria" in request.POST:
+            q = Q()
+            for tag in request.POST['input'].split(","):
+                q |= Q(categorias__nombre__iexact=tag)
+            noticias = Noticia.objects.filter(q)
+            context['categoria'] = request.POST['input']
+    elif texto:
+        q = Q()
+        for tag in [texto]:
+            q |= Q(categorias__nombre__iexact=tag)
+            noticias = Noticia.objects.filter(q)
+            context['categoria'] = texto
+
+    context['noticias'] = noticias
+
+    return render(request, "explore.html", context)
+
+def fresh_view(request):
+    noticias = Noticia.objects.all()
+    return render(request, "feed.html", {'noticias': noticias})
+
+def following_view(request):
+    noticias = Noticia.objects.filter(creador__in=request.user.siguiendo.all())
+    return render(request, "feed.html", {'noticias': noticias})
+
 
 def feed_view(request):
-    noticias = Noticia.objects.all()
+    noticias = Noticia.objects.filter(puntaje__gte=4)
     return render(request, "feed.html", {'noticias': noticias})
 
 
@@ -99,20 +133,35 @@ def new_view(request, id):
         if 'denuncia' in request.POST:
             if form.is_valid():
                 form.save(noticia)
+        if 'seguir' in request.POST:
+            if noticia.creador not in request.user.siguiendo.all():
+                request.user.siguiendo.add(noticia.creador)
+            else:
+                request.user.siguiendo.remove(noticia.creador)
 
     context = {
         'noticia': noticia,
         'no_voto': request.user not in noticia.usuarios.all()
     }
+    if noticia.creador in request.user.siguiendo.all():
+        context['follow'] = "Unfollow"
+    else:
+        context['follow'] = "Follow"
+
     return render(request, "noticia.html", context)
 
 
 def profile_view(request):
     form = UsuarioForm(request.POST or None)
+    noticias = Noticia.objects.filter(creador=request.user)
+    siguiendo = request.user.siguiendo.all()
     if form.is_valid():
         form.save()
     context = {
-        'form': form
+        'form': form,
+        'noticias': noticias,
+        'siguiendo': siguiendo,
+        'user': request.user
     }
     return render(request, "profile.html", context)
 
@@ -122,6 +171,14 @@ def profileedit_view(request):
     if request.method == 'POST' and 'edit' in request.POST:
         form = PerfilEditadoForm(request.POST)
         if form.is_valid():
+            if 'imagen' in request.FILES:
+                myfile = request.FILES['imagen']
+                fs = FileSystemStorage()
+                filename = fs.save(myfile.name, myfile) # saves the file to `media` folder
+                uploaded_file_url = fs.url(filename) # gets the url
+                request.user.imagen = filename
+                request.user.save()
+
             form.save(request.user, request.POST['descripcion'])
             return render(request, 'profileedit.html')
         else:
@@ -143,7 +200,8 @@ def profileedit_view(request):
             return render(request, 'profileedit.html', args)
 
     context = {
-        'form1': form
+        'form1': form,
+        'user': request.user
     }
     return render(request, "profileedit.html", context)
 
@@ -192,3 +250,16 @@ def change_password_view(request):
         'form2': form
     }
     return render(request, 'profileedit.html', context)
+
+from django.shortcuts import render
+from django.template import loader
+def error404(request, template_name='main/error404.html'):
+    t = loader.get_template(template_name)
+    context = {
+        'your_var' : True,
+        'request' : request,
+    }
+    return HttpResponseNotFound(t.render(context))
+
+def error500(request):
+    return render(request,'error500.html', status=500)

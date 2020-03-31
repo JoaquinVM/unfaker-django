@@ -1,0 +1,34 @@
+{% extends 'feed.html' %}
+
+{% block search %}
+<div class="">
+              <div class="col-xs">
+              <form method="POST" action="#" class="form-group">{% csrf_token %}
+                <div class="form-group row">
+                    <div class="col-12 form-group">
+                        <label for="search2">Search by words:</label>
+                        <input value="{{word}}" type="text" class="form-control" placeholder="Type a word" id="search2" name="input">
+                    </div>
+                    <div class="col-12 form-group">
+                        <input type="submit" class="btn btn-primary" value="Search" name="word">
+                    </div>
+
+                </div>
+              </form>
+              </div>
+            <div class="col-xs">
+              <form method="POST" action="#" class="form-group">{% csrf_token %}
+                <div class="form-group row">
+                    <div class="col-12 form-group">
+                        <label for="search">Search by Categories:</label>
+                        <input value="{{categoria}}" id="search" name="input" type="text" class="form-control col-xs"  data-role="tagsinput">
+                    </div>
+                    <div class="col-12 form-group">
+                        <input type="submit" class="btn  btn-primary col-xs" value="Search" name="categoria">
+                    </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+{% endblock %}

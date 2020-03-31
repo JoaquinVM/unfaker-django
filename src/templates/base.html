@@ -26,7 +26,14 @@
     <link rel="stylesheet" href="../static/css/noticia.css">
     <link rel="stylesheet" href="../static/css/bootstrap-tagsinput.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<style>
+    .center-cropped {
+  width: 500px;
+  height: 300px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+</style>
      <script>
       function readURL(input) {
         if (input.files && input.files[0]) {
@@ -56,9 +63,10 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="{% url 'feed' %}" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="{% url 'feed' %}" class="nav-link">Popular</a></li>
-	          <li class="nav-item"><a href="{% url 'feed' %}" class="nav-link">Fresh</a></li>
+            <li class="nav-item"><a href="{% url 'explore' %}" class="nav-link">Explore</a></li>
+	          <li class="nav-item"><a href="{% url 'fresh' %}" class="nav-link">Fresh</a></li>
                 {%if user.is_authenticated %}
+                <li class="nav-item"><a href="{% url 'following' %}" class="nav-link">Following</a></li>
                 <li class="nav-item"><a href="{% url 'publish' %}" class="nav-link">Publish</a></li>
 	            <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link">Profile</a></li>
                 <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
@@ -142,10 +150,8 @@
               <h2 class="ftco-heading-2">Information</h2>
               <ul class="list-unstyled">
                 <li><a href="{% url 'feed' %}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Home</a></li>
-                <li><a href="{% url 'feed' %}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Popular</a></li>
-                <li><a href="{% url 'feed' %}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Fresh</a></li>
-                <li><a href="{% url 'publish' %}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Publish</a></li>
-                <li><a href="{% url 'profile' %}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Profile</a></li>
+                <li><a href="{% url 'explore' %}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Explore</a></li>
+                <li><a href="{% url 'fresh' %}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Fresh</a></li>
               </ul>
             </div>
           </div>

@@ -74,22 +74,16 @@
 
             <div class="about-author d-flex p-4 bg-light">
               <div class="bio mr-5">
-                <img src="../static/images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4" style="width: 400px; height: 400px">
+                <img src="{{ "../media/"|add:noticia.creador.imagen }}" alt="Image placeholder" class="img-fluid mb-4 center-cropped block-20" style="width: 400px; height: 400px">
               </div>
               <div class="desc">
                 <h3><b>Autor: </b> <br> {{noticia.creador}}</h3>
                 <p>{{noticia.creador.descripcion}}</p> <br><br><br>
                 <p>
-                   <input type="button" class="btn btn-primary py-3 px-5"  value="Follow" onclick="return change(this);" />
-                      <script type="text/javascript">
-                       function change( el )
-                       {
-                          if ( el.value === "Unfollow" )
-                            el.value = "Follow";
-                          else
-                            el.value = "Unfollow";
-                       }
-                      </script>
+                  <form method='POST' action="#" class=" bg-light">{% csrf_token %}
+                  <input type="submit" class="btn btn-primary py-3 px-5"  value="{{follow}}" name="seguir"/>
+                </form>
+
                 </p>
               </div>
             </div>
@@ -135,33 +129,14 @@
 
           </div> <!-- .col-md-8 -->
           <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
-            <div class="">
-              <form action="#" class="form-group">
-                <div class="form-group row">
-                  <input type="text" class="form-control col-md-8" placeholder="Type a word">
-                  <input type="submit" class="btn  btn-primary col-md-4" value="Search">
-                </div>
-              </form>
-            </div>
-            <div class="">
-              <form action="#" class="form-group">
-                <div class="form-group row">
-                  <label for="descripcion">Search by Categories:</label>
-                  <input type="text" class="form-control col-md-8" placeholder="" data-role="tagsinput">
-                  <br>
-                  <br>
-                  <input type="submit" class="btn  btn-primary col-md-4" value="Search">
-                </div>
-              </form>
-            </div>
             <div class="sidebar-box ftco-animate">
               <div class="categories">
                 <h3>Categories</h3>
-                <li><a href="#">Coronavirus <span class="ion-ios-arrow-forward"></span></a></li>
-                <li><a href="#">Reino Unido <span class="ion-ios-arrow-forward"></span></a></li>
-                <li><a href="#">Salud <span class="ion-ios-arrow-forward"></span></a></li>
-                <li><a href="#">Política <span class="ion-ios-arrow-forward"></span></a></li>
-                <li><a href="#">Deportes <span class="ion-ios-arrow-forward"></span></a></li>
+                <li><a href="{% url 'explore' texto="Coronavirus" %}">Coronavirus <span class="ion-ios-arrow-forward"></span></a></li>
+                <li><a href="{% url 'explore' texto="Reino Unido" %}">Reino Unido <span class="ion-ios-arrow-forward"></span></a></li>
+                <li><a href="{% url 'explore' texto="Salud" %}">Salud <span class="ion-ios-arrow-forward"></span></a></li>
+                <li><a href="{% url 'explore' texto="Política" %}">Política <span class="ion-ios-arrow-forward"></span></a></li>
+                <li><a href="{% url 'explore' texto="Deportes" %}">Deportes <span class="ion-ios-arrow-forward"></span></a></li>
               </div>
             </div>
 
@@ -205,14 +180,14 @@
             <div class="sidebar-box ftco-animate">
               <h3>Tag Cloud</h3>
               <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">Coronavirus</a>
-                <a href="#" class="tag-cloud-link">Deportes</a>
-                <a href="#" class="tag-cloud-link">Jeanine Añez</a>
-                <a href="#" class="tag-cloud-link">Deportes</a>
-                <a href="#" class="tag-cloud-link">Bolivia</a>
-                <a href="#" class="tag-cloud-link">Salud</a>
-                <a href="#" class="tag-cloud-link">Entretenimiento</a>
-                <a href="#" class="tag-cloud-link">Estados Unidos</a>
+                <a href="{% url 'explore' texto="Coronavirus" %}" class="tag-cloud-link">Coronavirus</a>
+                <a href="{% url 'explore' texto="Deportes" %}" class="tag-cloud-link">Deportes</a>
+                <a href="{% url 'explore' texto="Jeanine Añez" %}" class="tag-cloud-link">Jeanine Añez</a>
+                <a href="{% url 'explore' texto="Deportes" %}" class="tag-cloud-link">Deportes</a>
+                <a href="{% url 'explore' texto="Bolivia" %}" class="tag-cloud-link">Bolivia</a>
+                <a href="{% url 'explore' texto="Salud" %}" class="tag-cloud-link">Salud</a>
+                <a href="{% url 'explore' texto="Entretenimiento" %}" class="tag-cloud-link">Entretenimiento</a>
+                <a href="{% url 'explore' texto="Estados Unidos" %}" class="tag-cloud-link">Estados Unidos</a>
               </div>
             </div>
 

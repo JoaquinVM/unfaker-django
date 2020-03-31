@@ -2,10 +2,13 @@ from django import forms
 
 from .models import Noticia
 from .models import Categoria
-from django.contrib.auth.models import User
+from .models import Usuario
 from django.contrib.auth.forms import UserChangeForm
 from .models import Denuncia
+from django.contrib.auth import get_user_model
+from django.contrib.auth import authenticate
 
+User = get_user_model()
 
 
 class NoticiaForm (forms.Form):
@@ -55,8 +58,33 @@ class DenunciaForm (forms.Form):
                           tipo=data['tipo'], noticia=noticia)
         denuncia.save()
 
-class PerfilEditadoForm(UserChangeForm):
-    class Meta:
-        model = User
-        fields = [ 'first_name', 'last_name', 'email']
+
+class PerfilEditadoForm(forms.Form):
+    first_name = forms.CharField(max_length=100)
+    last_name = forms.CharField(max_length=100)
+    email = forms.CharField(max_length=100)
+
+    def save(self, user, descripcion):
+        data = self.cleaned_data
+        user.first_name = data['first_name']
+        user.last_name = data['last_name']
+        user.descripcion = descripcion
+        user.save()
+
+
+class PasswordForm(forms.Form):
+    old_password = forms.CharField(max_length=100)
+    new_password = forms.CharField(max_length=100)
+    repeat_new_password = forms.CharField(max_length=100)
+
+    def save(self, user):
+        data = self.cleaned_data
+        u = authenticate(username=user.username, password=data['old_password'])
+        if u is not None and data['new_password'] == data['repeat_new_password']:
+            user.set_password(data['new_password'])
+            user.save()
+            return True
+        return False
+
+
 

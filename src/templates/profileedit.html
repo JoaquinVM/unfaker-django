@@ -2,8 +2,8 @@
 
 {% block content %}
 <section class="bg-light contact-section" xmlns="http://www.w3.org/1999/html">
-      <br>
-      <br>
+	<br>
+	<br>
       <div class="">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
           <div class="col-md-9 ftco-animate pb-1 text-center">
@@ -43,18 +43,60 @@
 									</ul>
 									<div class="tab-content bg-light rounded mt-2" >
 									  <div class="tab-pane container p-0 active" id="home1">
-									  <form method="POST" action="#"> {% csrf_token %}
-									  	<p>Por favor, no dejes ningún campo en blanco.
-										 <center> {{ form1.as_ul }}
-					  							<button class="btn btn-primary py-1 px-2" type="submit" > Save </button>
-									  	</center> </p>
-					  					</form>
+										<form method= 'POST' action="#" class="form-group"> {% csrf_token %}
+              <div class="form-group">
+				<label for="first_name" >First Name:</label>
+                <input type="text" class="form-control" name="first_name" id ="first_name" value="{{user.first_name}}">
+              </div>
+              <div class="form-group">
+				  <label for="last_name" >Last Name:</label>
+                <input type="text" class="form-control" name="last_name" id ="last_name" value="{{user.last_name}}">
+              </div>
+				<div class="form-group">
+				  <label for="email" >Email:</label>
+                <input type="text" class="form-control" name="email" id ="email" value="{{user.email}}">
+              </div>
+              <div class="form-group">
+				  <label for="descripcion" >Descripcion:</label>
+				  <textarea class="form-control" cols="30" rows="10" name="descripcion" id ="descripcion" >{{user.descripcion}}</textarea>
+              </div>
+              <div class="form-group d-flex justify-content-center h-10">
+                <input type="submit" value="Edit" name="edit" class="btn btn-primary py-3 px-5">
+              </div>
+              <div class="row justify-content-center " style="color:black" >
+              {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                  {{message}}
+                  </div>
+              {% endfor %}
+              </div>
+            </form>
 									  </div>
 									  <div class="tab-pane container p-0 fade" id="home2">
-										  <form method="POST" action="#"> {% csrf_token %}
-											  <p>  Por favor, escriba en los siguientes campos.
-										  <center> {{ form2.as_ul }}
-												  <button class="btn btn-primary py-1 px-2" type="submit" > Save </button></center></p></form>>
+										  <form method= 'POST' action="#" class="form-group"> {% csrf_token %}
+              <div class="form-group">
+				<label for="old_password" >Old Password:</label>
+                <input type="password" class="form-control" name="old_password" id ="old_password">
+              </div>
+              <div class="form-group">
+				  <label for="new_password" >New Password:</label>
+                <input type="password" class="form-control" name="new_password" id ="new_password">
+              </div>
+				<div class="form-group">
+				  <label for="repeat_new_password" >Repeat New Password:</label>
+                <input type="password" class="form-control" name="repeat_new_password" id ="repeat_new_password">
+              </div>
+              <div class="form-group d-flex justify-content-center h-10">
+                <input type="submit" value="Change" name="password" class="btn btn-primary py-3 px-5">
+              </div>
+              <div class="row justify-content-center " style="color:black" >
+              {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                  {{message}}
+                  </div>
+              {% endfor %}
+              </div>
+            </form>
 									  </div>
 									  <div class="tab-pane container p-0 fade" id="home3">
 									  	<p>You hadn't write any new, do you want to publish your first article?.</p>

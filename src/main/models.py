@@ -15,7 +15,7 @@ class Usuario(AbstractUser):
               ('Paraguay', 'Paraguay'), ('Perú', 'Perú'), ('Uruguay', 'Uruguay'),
               ('Venezuela', 'Venezuela'))
     nacionalidad=models.CharField( max_length=20, default='Bolivia')
-    puntaje = models.IntegerField(null=True)
+    puntaje = models.IntegerField(default=0)
     generos=( ('M', 'Masculino'), ('F', 'Femenino'))
     genero = models.CharField(choices=generos, default='FN', max_length=10)
     descripcion = models.CharField(max_length=140, default='El usuario no ha escrito su descripcion aun.')

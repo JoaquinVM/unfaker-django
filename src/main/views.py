@@ -151,7 +151,7 @@ def publish_view(request):
         uploaded_file_url = fs.url(filename) # gets the url
         form.save(filename, request.user, request.POST['titulo'], request.POST['descripcion'], request.POST['categorias'])
         context['uploaded_file_url'] = uploaded_file_url
-        messages.info(request, 'Noticia publicada con éxito')
+        messages.info(request, 'tu noticia ha sido publicada con éxito')
         return render(request, 'publish.html', context)
     return render(request, 'publish.html', context)
 

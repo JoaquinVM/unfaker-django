@@ -129,7 +129,21 @@ def new_view(request, id):
     if request.method == "POST":
         if 'voto' in request.POST:
             voto = request.POST['debt-amount']
-            noticia.actualizarPuntaje(request.user, voto, request.user.calc_puntaje())
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            url = 'https://www.google.com/recaptcha/api/siteverify'
+            values = {
+                    'secret': settings.RECAPTCHA_SECRET_KEY,
+                    'response': recaptcha_response
+            }
+            data = urllib.parse.urlencode(values).encode()
+            req = urllib.request.Request(url, data=data)
+            response = urllib.request.urlopen(req)
+            result = json.loads(response.read().decode())
+            if result['success']:
+                noticia.actualizarPuntaje(request.user, voto, request.user.calc_puntaje())
+            else:
+                messages.error(request, '¿Eres un robot? ¡Captcha inválido!')
+
         if 'denuncia' in request.POST:
             if form.is_valid():
                 form.save(noticia)
@@ -210,15 +224,33 @@ def publish_view(request):
 
     context = {'user': request.user}
 
-    if request.method == 'POST' and request.FILES['imagen'] and form.is_valid():
-        myfile = request.FILES['imagen']
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile) # saves the file to `media` folder
-        uploaded_file_url = fs.url(filename) # gets the url
-        form.save(filename, request.user, request.POST['titulo'], request.POST['descripcion'], request.POST['categorias'])
-        context['uploaded_file_url'] = uploaded_file_url
-        messages.info(request, 'tu noticia ha sido publicada con éxito')
-        return render(request, 'publish.html', context)
+    if request.method == 'POST':
+        if 'imagen' in request.FILES and form.is_valid():
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            url = 'https://www.google.com/recaptcha/api/siteverify'
+            values = {
+                    'secret': settings.RECAPTCHA_SECRET_KEY,
+                    'response': recaptcha_response
+            }
+            data = urllib.parse.urlencode(values).encode()
+            req = urllib.request.Request(url, data=data)
+            response = urllib.request.urlopen(req)
+            result = json.loads(response.read().decode())
+            if result['success']:
+                myfile = request.FILES['imagen']
+                fs = FileSystemStorage()
+                filename = fs.save(myfile.name, myfile) # saves the file to `media` folder
+                uploaded_file_url = fs.url(filename) # gets the url
+                form.save(filename, request.user, request.POST['titulo'], request.POST['descripcion'], request.POST['categorias'])
+                context['uploaded_file_url'] = uploaded_file_url
+                messages.info(request, 'tu noticia ha sido publicada con éxito')
+                return render(request, 'publish.html', context)
+            else:
+                messages.error(request, '¿Eres un robot? ¡Captcha inválido!')
+
+        else:
+            messages.info(request, 'Datos invalidos')
+
     return render(request, 'publish.html', context)
 
 def logout_view(request):

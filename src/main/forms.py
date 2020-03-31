@@ -29,7 +29,9 @@ class NoticiaForm (forms.Form):
                 cats.append(new)
             else:
                 cats.append(Categoria.objects.get(nombre=cat))
+
         noticia.save()
+        noticia.usuarios.add(user)
         for cat in cats:
             noticia.categorias.add(cat)
 

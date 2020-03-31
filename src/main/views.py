@@ -1,7 +1,7 @@
 import json
 import urllib
 from django.shortcuts import render, redirect
-from .forms import NoticiaForm, DenunciaForm, UsuarioForm, PerfilEditadoForm
+from .forms import NoticiaForm, DenunciaForm, UsuarioForm, PerfilEditadoForm, PasswordForm
 from django.contrib.auth.models import auth, User
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import get_user_model, update_session_auth_hash
@@ -108,16 +108,30 @@ def profile_view(request):
     }
     return render(request, "profile.html", context)
 
-def  profileedit_view(request):
-    form= PerfilEditadoForm(request.POST or None)
-    if request.method== 'POST':
-        form.instance = request.user
+
+def profileedit_view(request):
+    form = PerfilEditadoForm(request.POST or None)
+    if request.method == 'POST' and 'edit' in request.POST:
+        form = PerfilEditadoForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('profileedit')
+            form.save(request.user, request.POST['descripcion'])
+            return render(request, 'profileedit.html')
         else:
-            form= PerfilEditadoForm(instance=request.user)
+            args= {'form': form, 'messages': form.errors}
+            messages.error(request, form.errors)
+            return render(request, 'profileedit.html', args)
+    if request.method == 'POST' and 'password' in request.POST:
+        form = PasswordForm(request.POST)
+        if form.is_valid():
+            if form.save(request.user):
+                return render(request, 'profileedit.html')
+            else:
+                args= {'form': form}
+                messages.info(request, "Invalid Data")
+                return render(request, 'profileedit.html', args)
+        else:
             args= {'form': form}
+            messages.info(request, "Invalid Data")
             return render(request, 'profileedit.html', args)
 
     context = {
@@ -157,17 +171,15 @@ def logout_view(request):
     # return render(request, "publish.html", context)
 
 def change_password_view(request):
+    form = PasswordForm(request.POST or None)
     if request.method == 'POST':
-        form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
-            user = form.save()
-            update_session_auth_hash(request, user)
-            messages.success(request, 'Contraseña cambiada con éxito')
-            return redirect('profileedit')
+            form.save(request.user, request.POST['descripcion'])
+            return render(request, 'profileedit.html')
         else:
-            messages.error(request, 'Ha ocurrido un error.')
-    else:
-        form = PasswordChangeForm(request.user)
+            args= {'form': form, 'messages': form.errors}
+            messages.error(request, form.errors)
+            return render(request, 'profileedit.html', args)
     context = {
         'form2': form
     }

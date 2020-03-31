@@ -41,7 +41,9 @@
               Don't have an Account? &nbsp <a href="{% url 'signin' %}"style="font-size: 17px;"><u> Register</u></a>
                <div class="row justify-content-center " style="color:black" >
               {% for message in messages %}
-              {{message}}
+                <div class="alert alert-danger" role="alert">
+                  {{message}}
+                  </div>
               {% endfor %}
               </div>
             </form>

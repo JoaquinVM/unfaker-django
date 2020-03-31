@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="unfaker" uuid="1b606ecc-69a5-4568-9fad-ceb60fe2d0b4">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\UPB\Certi Python\unfaker-django\src\unfaker.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="unfaker1" uuid="46fc8db8-497e-4090-bb85-f50a643630da">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\UPB\Certi Python\unfaker-django\src\unfaker1.db</jdbc-url>
+    </data-source>
+  </component>
+</project>

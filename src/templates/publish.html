@@ -8,6 +8,9 @@
         <div class="row no-gutters slider-text align-items-end justify-content-center">
           <div class="col-md-9 ftco-animate pb-1 text-center">
             <h2 class="mb-3 bread" style="color:#b5b5b5; font-size: 70px;">Publish</h2>
+            {% for message in messages %}
+              {{message}}
+              {% endfor %}
           </div>
         </div>
       </div>
